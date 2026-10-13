@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streamnative/main/json-schema/streamnative-kafka-topic-list-schema.json",
+  "title": "KafkaTopicList",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/streamnative-kafka-rest-openapi.yml#/components/schemas/KafkaTopicList",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/KafkaTopic"
+      }
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+    "kind": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "KafkaTopic": {
+      "type": "object",
+      "properties": {
+        "topic_name": {
+          "type": "string"
+        },
+        "partitions_count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "metadata": {
+          "$ref": "#/$defs/Metadata"
+        },
+        "internal": {
+          "type": "boolean"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object"
+    }
+  }
+}

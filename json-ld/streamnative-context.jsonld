@@ -1,0 +1,873 @@
+{
+  "@context": {
+    "@vocab": "https://streamnative.io/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "streamnative": "https://streamnative.io/schema#",
+    "cloud.v1alpha1.APIKeyList": "streamnative:cloud.v1alpha1.APIKeyList",
+    "apiVersion": {
+      "@id": "streamnative:apiVersion",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "streamnative:items",
+      "@container": "@list"
+    },
+    "kind": {
+      "@id": "streamnative:kind",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "streamnative:metadata"
+    },
+    "cloud.v1alpha1.APIKey": "streamnative:cloud.v1alpha1.APIKey",
+    "spec": {
+      "@id": "streamnative:spec"
+    },
+    "status": {
+      "@id": "streamnative:status"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta",
+    "annotations": {
+      "@id": "streamnative:annotations"
+    },
+    "clusterName": {
+      "@id": "streamnative:clusterName",
+      "@type": "xsd:string"
+    },
+    "creationTimestamp": {
+      "@id": "streamnative:creationTimestamp"
+    },
+    "deletionGracePeriodSeconds": {
+      "@id": "streamnative:deletionGracePeriodSeconds",
+      "@type": "xsd:integer"
+    },
+    "deletionTimestamp": {
+      "@id": "streamnative:deletionTimestamp"
+    },
+    "finalizers": {
+      "@id": "streamnative:finalizers",
+      "@container": "@list"
+    },
+    "generateName": {
+      "@id": "streamnative:generateName",
+      "@type": "xsd:string"
+    },
+    "generation": {
+      "@id": "streamnative:generation",
+      "@type": "xsd:integer"
+    },
+    "labels": {
+      "@id": "streamnative:labels"
+    },
+    "managedFields": {
+      "@id": "streamnative:managedFields",
+      "@container": "@list"
+    },
+    "name": {
+      "@id": "streamnative:name",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "streamnative:namespace",
+      "@type": "xsd:string"
+    },
+    "ownerReferences": {
+      "@id": "streamnative:ownerReferences",
+      "@container": "@list"
+    },
+    "resourceVersion": {
+      "@id": "streamnative:resourceVersion",
+      "@type": "xsd:string"
+    },
+    "selfLink": {
+      "@id": "streamnative:selfLink",
+      "@type": "xsd:string"
+    },
+    "uid": {
+      "@id": "streamnative:uid",
+      "@type": "xsd:string"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.ManagedFieldsEntry",
+    "fieldsType": {
+      "@id": "streamnative:fieldsType",
+      "@type": "xsd:string"
+    },
+    "fieldsV1": {
+      "@id": "streamnative:fieldsV1"
+    },
+    "manager": {
+      "@id": "streamnative:manager",
+      "@type": "xsd:string"
+    },
+    "operation": {
+      "@id": "streamnative:operation",
+      "@type": "xsd:string"
+    },
+    "subresource": {
+      "@id": "streamnative:subresource",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "streamnative:time"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference",
+    "blockOwnerDeletion": {
+      "@id": "streamnative:blockOwnerDeletion",
+      "@type": "xsd:boolean"
+    },
+    "controller": {
+      "@id": "streamnative:controller",
+      "@type": "xsd:boolean"
+    },
+    "cloud.v1alpha1.APIKeySpec": "streamnative:cloud.v1alpha1.APIKeySpec",
+    "description": {
+      "@id": "streamnative:description",
+      "@type": "xsd:string"
+    },
+    "encryptionKey": {
+      "@id": "streamnative:encryptionKey"
+    },
+    "expirationTime": {
+      "@id": "streamnative:expirationTime"
+    },
+    "instanceName": {
+      "@id": "streamnative:instanceName",
+      "@type": "xsd:string"
+    },
+    "revoke": {
+      "@id": "streamnative:revoke",
+      "@type": "xsd:boolean"
+    },
+    "serviceAccountName": {
+      "@id": "streamnative:serviceAccountName",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.EncryptionKey": "streamnative:cloud.v1alpha1.EncryptionKey",
+    "jwk": {
+      "@id": "streamnative:jwk",
+      "@type": "xsd:string"
+    },
+    "pem": {
+      "@id": "streamnative:pem",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.APIKeyStatus": "streamnative:cloud.v1alpha1.APIKeyStatus",
+    "conditions": {
+      "@id": "streamnative:conditions",
+      "@container": "@list"
+    },
+    "encryptedToken": {
+      "@id": "streamnative:encryptedToken"
+    },
+    "expiresAt": {
+      "@id": "streamnative:expiresAt"
+    },
+    "issuedAt": {
+      "@id": "streamnative:issuedAt"
+    },
+    "keyId": {
+      "@id": "streamnative:keyId",
+      "@type": "xsd:string"
+    },
+    "revokedAt": {
+      "@id": "streamnative:revokedAt"
+    },
+    "token": {
+      "@id": "streamnative:token",
+      "@type": "xsd:string"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.Condition": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.Condition",
+    "lastTransitionTime": {
+      "@id": "streamnative:lastTransitionTime"
+    },
+    "message": {
+      "@id": "streamnative:message",
+      "@type": "xsd:string"
+    },
+    "observedGeneration": {
+      "@id": "streamnative:observedGeneration",
+      "@type": "xsd:integer"
+    },
+    "reason": {
+      "@id": "streamnative:reason",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "streamnative:type",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.EncryptedToken": "streamnative:cloud.v1alpha1.EncryptedToken",
+    "jwe": {
+      "@id": "streamnative:jwe",
+      "@type": "xsd:string"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta",
+    "continue": {
+      "@id": "streamnative:continue",
+      "@type": "xsd:string"
+    },
+    "remainingItemCount": {
+      "@id": "streamnative:remainingItemCount",
+      "@type": "xsd:integer"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.Status": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.Status",
+    "code": {
+      "@id": "streamnative:code",
+      "@type": "xsd:integer"
+    },
+    "details": {
+      "@id": "streamnative:details"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails",
+    "causes": {
+      "@id": "streamnative:causes",
+      "@container": "@list"
+    },
+    "group": {
+      "@id": "streamnative:group",
+      "@type": "xsd:string"
+    },
+    "retryAfterSeconds": {
+      "@id": "streamnative:retryAfterSeconds",
+      "@type": "xsd:integer"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause",
+    "field": {
+      "@id": "streamnative:field",
+      "@type": "xsd:string"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions",
+    "dryRun": {
+      "@id": "streamnative:dryRun",
+      "@container": "@list"
+    },
+    "gracePeriodSeconds": {
+      "@id": "streamnative:gracePeriodSeconds",
+      "@type": "xsd:integer"
+    },
+    "orphanDependents": {
+      "@id": "streamnative:orphanDependents",
+      "@type": "xsd:boolean"
+    },
+    "preconditions": {
+      "@id": "streamnative:preconditions"
+    },
+    "propagationPolicy": {
+      "@id": "streamnative:propagationPolicy",
+      "@type": "xsd:string"
+    },
+    "io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.Preconditions",
+    "io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent": "streamnative:io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent",
+    "object": {
+      "@id": "streamnative:object"
+    },
+    "cloud.v1alpha1.CloudConnectionList": "streamnative:cloud.v1alpha1.CloudConnectionList",
+    "cloud.v1alpha1.CloudConnection": "streamnative:cloud.v1alpha1.CloudConnection",
+    "cloud.v1alpha1.CloudConnectionSpec": "streamnative:cloud.v1alpha1.CloudConnectionSpec",
+    "aws": {
+      "@id": "streamnative:aws",
+      "@type": "@id"
+    },
+    "azure": {
+      "@id": "streamnative:azure",
+      "@type": "@id"
+    },
+    "gcp": {
+      "@id": "streamnative:gcp",
+      "@type": "@id"
+    },
+    "cloud.v1alpha1.AWSCloudConnection": "streamnative:cloud.v1alpha1.AWSCloudConnection",
+    "accountId": {
+      "@id": "streamnative:accountId",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.AzureConnection": "streamnative:cloud.v1alpha1.AzureConnection",
+    "clientId": {
+      "@id": "streamnative:clientId",
+      "@type": "xsd:string"
+    },
+    "subscriptionId": {
+      "@id": "streamnative:subscriptionId",
+      "@type": "xsd:string"
+    },
+    "supportClientId": {
+      "@id": "streamnative:supportClientId",
+      "@type": "xsd:string"
+    },
+    "tenantId": {
+      "@id": "streamnative:tenantId",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.GCPCloudConnection": "streamnative:cloud.v1alpha1.GCPCloudConnection",
+    "projectId": {
+      "@id": "streamnative:projectId",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.CloudConnectionStatus": "streamnative:cloud.v1alpha1.CloudConnectionStatus",
+    "availableLocations": {
+      "@id": "streamnative:availableLocations",
+      "@container": "@list"
+    },
+    "awsPolicyVersion": {
+      "@id": "streamnative:awsPolicyVersion",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.RegionInfo": "streamnative:cloud.v1alpha1.RegionInfo",
+    "region": {
+      "@id": "streamnative:region",
+      "@type": "xsd:string"
+    },
+    "zones": {
+      "@id": "streamnative:zones",
+      "@container": "@list"
+    },
+    "cloud.v1alpha1.Condition": "streamnative:cloud.v1alpha1.Condition",
+    "cloud.v1alpha1.CloudEnvironmentList": "streamnative:cloud.v1alpha1.CloudEnvironmentList",
+    "cloud.v1alpha1.CloudEnvironment": "streamnative:cloud.v1alpha1.CloudEnvironment",
+    "cloud.v1alpha1.CloudEnvironmentSpec": "streamnative:cloud.v1alpha1.CloudEnvironmentSpec",
+    "cloudConnectionName": {
+      "@id": "streamnative:cloudConnectionName",
+      "@type": "xsd:string"
+    },
+    "defaultGateway": {
+      "@id": "streamnative:defaultGateway"
+    },
+    "network": {
+      "@id": "streamnative:network"
+    },
+    "zone": {
+      "@id": "streamnative:zone",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.Gateway": "streamnative:cloud.v1alpha1.Gateway",
+    "access": {
+      "@id": "streamnative:access",
+      "@type": "xsd:string"
+    },
+    "privateService": {
+      "@id": "streamnative:privateService"
+    },
+    "cloud.v1alpha1.PrivateService": "streamnative:cloud.v1alpha1.PrivateService",
+    "allowedIds": {
+      "@id": "streamnative:allowedIds",
+      "@container": "@list"
+    },
+    "cloud.v1alpha1.Network": "streamnative:cloud.v1alpha1.Network",
+    "cidr": {
+      "@id": "streamnative:cidr",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "streamnative:id",
+      "@type": "xsd:string"
+    },
+    "subnetCIDR": {
+      "@id": "streamnative:subnetCIDR",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.CloudEnvironmentStatus": "streamnative:cloud.v1alpha1.CloudEnvironmentStatus",
+    "cloud.v1alpha1.GatewayStatus": "streamnative:cloud.v1alpha1.GatewayStatus",
+    "privateServiceIds": {
+      "@id": "streamnative:privateServiceIds",
+      "@container": "@list"
+    },
+    "cloud.v1alpha1.PrivateServiceId": "streamnative:cloud.v1alpha1.PrivateServiceId",
+    "cloud.v1alpha1.PulsarClusterList": "streamnative:cloud.v1alpha1.PulsarClusterList",
+    "cloud.v1alpha1.PulsarCluster": "streamnative:cloud.v1alpha1.PulsarCluster",
+    "cloud.v1alpha1.PulsarClusterSpec": "streamnative:cloud.v1alpha1.PulsarClusterSpec",
+    "bookKeeperSetRef": {
+      "@id": "streamnative:bookKeeperSetRef",
+      "@type": "@id"
+    },
+    "bookkeeper": {
+      "@id": "streamnative:bookkeeper",
+      "@type": "@id"
+    },
+    "broker": {
+      "@id": "streamnative:broker"
+    },
+    "config": {
+      "@id": "streamnative:config",
+      "@type": "@id"
+    },
+    "location": {
+      "@id": "streamnative:location",
+      "@type": "xsd:string"
+    },
+    "maintenanceWindow": {
+      "@id": "streamnative:maintenanceWindow",
+      "@type": "@id"
+    },
+    "poolMemberRef": {
+      "@id": "streamnative:poolMemberRef"
+    },
+    "releaseChannel": {
+      "@id": "streamnative:releaseChannel",
+      "@type": "xsd:string"
+    },
+    "serviceEndpoints": {
+      "@id": "streamnative:serviceEndpoints",
+      "@container": "@list"
+    },
+    "tolerations": {
+      "@id": "streamnative:tolerations",
+      "@container": "@list"
+    },
+    "zooKeeperSetRef": {
+      "@id": "streamnative:zooKeeperSetRef",
+      "@type": "@id"
+    },
+    "cloud.v1alpha1.BookKeeperSetReference": "streamnative:cloud.v1alpha1.BookKeeperSetReference",
+    "cloud.v1alpha1.BookKeeper": "streamnative:cloud.v1alpha1.BookKeeper",
+    "autoScalingPolicy": {
+      "@id": "streamnative:autoScalingPolicy"
+    },
+    "image": {
+      "@id": "streamnative:image",
+      "@type": "xsd:string"
+    },
+    "replicas": {
+      "@id": "streamnative:replicas",
+      "@type": "xsd:integer"
+    },
+    "resourceSpec": {
+      "@id": "streamnative:resourceSpec"
+    },
+    "resources": {
+      "@id": "streamnative:resources"
+    },
+    "cloud.v1alpha1.AutoScalingPolicy": "streamnative:cloud.v1alpha1.AutoScalingPolicy",
+    "maxReplicas": {
+      "@id": "streamnative:maxReplicas",
+      "@type": "xsd:integer"
+    },
+    "minReplicas": {
+      "@id": "streamnative:minReplicas",
+      "@type": "xsd:integer"
+    },
+    "cloud.v1alpha1.BookKeeperNodeResourceSpec": "streamnative:cloud.v1alpha1.BookKeeperNodeResourceSpec",
+    "nodeType": {
+      "@id": "streamnative:nodeType",
+      "@type": "xsd:string"
+    },
+    "storageSize": {
+      "@id": "streamnative:storageSize"
+    },
+    "cloud.v1alpha1.BookkeeperNodeResource": "streamnative:cloud.v1alpha1.BookkeeperNodeResource",
+    "cpu": {
+      "@id": "streamnative:cpu",
+      "@type": "@id"
+    },
+    "directPercentage": {
+      "@id": "streamnative:directPercentage",
+      "@type": "xsd:integer"
+    },
+    "heapPercentage": {
+      "@id": "streamnative:heapPercentage",
+      "@type": "xsd:integer"
+    },
+    "journalDisk": {
+      "@id": "streamnative:journalDisk"
+    },
+    "ledgerDisk": {
+      "@id": "streamnative:ledgerDisk"
+    },
+    "memory": {
+      "@id": "streamnative:memory",
+      "@type": "@id"
+    },
+    "cloud.v1alpha1.Broker": "streamnative:cloud.v1alpha1.Broker",
+    "cloud.v1alpha1.BrokerNodeResourceSpec": "streamnative:cloud.v1alpha1.BrokerNodeResourceSpec",
+    "cloud.v1alpha1.DefaultNodeResource": "streamnative:cloud.v1alpha1.DefaultNodeResource",
+    "cloud.v1alpha1.Config": "streamnative:cloud.v1alpha1.Config",
+    "auditLog": {
+      "@id": "streamnative:auditLog"
+    },
+    "custom": {
+      "@id": "streamnative:custom"
+    },
+    "functionEnabled": {
+      "@id": "streamnative:functionEnabled",
+      "@type": "xsd:boolean"
+    },
+    "protocols": {
+      "@id": "streamnative:protocols"
+    },
+    "transactionEnabled": {
+      "@id": "streamnative:transactionEnabled",
+      "@type": "xsd:boolean"
+    },
+    "websocketEnabled": {
+      "@id": "streamnative:websocketEnabled",
+      "@type": "xsd:boolean"
+    },
+    "cloud.v1alpha1.AuditLog": "streamnative:cloud.v1alpha1.AuditLog",
+    "categories": {
+      "@id": "streamnative:categories",
+      "@container": "@list"
+    },
+    "cloud.v1alpha1.ProtocolsConfig": "streamnative:cloud.v1alpha1.ProtocolsConfig",
+    "amqp": {
+      "@id": "streamnative:amqp"
+    },
+    "kafka": {
+      "@id": "streamnative:kafka"
+    },
+    "mqtt": {
+      "@id": "streamnative:mqtt"
+    },
+    "cloud.v1alpha1.MaintenanceWindow": "streamnative:cloud.v1alpha1.MaintenanceWindow",
+    "recurrence": {
+      "@id": "streamnative:recurrence",
+      "@type": "xsd:string"
+    },
+    "window": {
+      "@id": "streamnative:window"
+    },
+    "cloud.v1alpha1.Window": "streamnative:cloud.v1alpha1.Window",
+    "duration": {
+      "@id": "streamnative:duration"
+    },
+    "startTime": {
+      "@id": "streamnative:startTime",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.PoolMemberReference": "streamnative:cloud.v1alpha1.PoolMemberReference",
+    "cloud.v1alpha1.PulsarServiceEndpoint": "streamnative:cloud.v1alpha1.PulsarServiceEndpoint",
+    "dnsName": {
+      "@id": "streamnative:dnsName",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.Toleration": "streamnative:cloud.v1alpha1.Toleration",
+    "effect": {
+      "@id": "streamnative:effect",
+      "@type": "xsd:string"
+    },
+    "key": {
+      "@id": "streamnative:key",
+      "@type": "xsd:string"
+    },
+    "operator": {
+      "@id": "streamnative:operator",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "streamnative:value",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.ZooKeeperSetReference": "streamnative:cloud.v1alpha1.ZooKeeperSetReference",
+    "cloud.v1alpha1.PulsarClusterStatus": "streamnative:cloud.v1alpha1.PulsarClusterStatus",
+    "zookeeper": {
+      "@id": "streamnative:zookeeper"
+    },
+    "cloud.v1alpha1.PulsarClusterComponentStatus": "streamnative:cloud.v1alpha1.PulsarClusterComponentStatus",
+    "readyReplicas": {
+      "@id": "streamnative:readyReplicas",
+      "@type": "xsd:integer"
+    },
+    "updatedReplicas": {
+      "@id": "streamnative:updatedReplicas",
+      "@type": "xsd:integer"
+    },
+    "cloud.v1alpha1.PulsarGatewayList": "streamnative:cloud.v1alpha1.PulsarGatewayList",
+    "cloud.v1alpha1.PulsarGateway": "streamnative:cloud.v1alpha1.PulsarGateway",
+    "cloud.v1alpha1.PulsarGatewaySpec": "streamnative:cloud.v1alpha1.PulsarGatewaySpec",
+    "domains": {
+      "@id": "streamnative:domains",
+      "@container": "@list"
+    },
+    "cloud.v1alpha1.Domain": "streamnative:cloud.v1alpha1.Domain",
+    "tls": {
+      "@id": "streamnative:tls",
+      "@type": "@id"
+    },
+    "cloud.v1alpha1.DomainTLS": "streamnative:cloud.v1alpha1.DomainTLS",
+    "certificateName": {
+      "@id": "streamnative:certificateName",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.PulsarGatewayStatus": "streamnative:cloud.v1alpha1.PulsarGatewayStatus",
+    "cloud.v1alpha1.PulsarInstanceList": "streamnative:cloud.v1alpha1.PulsarInstanceList",
+    "cloud.v1alpha1.PulsarInstance": "streamnative:cloud.v1alpha1.PulsarInstance",
+    "cloud.v1alpha1.PulsarInstanceSpec": "streamnative:cloud.v1alpha1.PulsarInstanceSpec",
+    "auth": {
+      "@id": "streamnative:auth"
+    },
+    "availabilityMode": {
+      "@id": "streamnative:availabilityMode",
+      "@type": "xsd:string"
+    },
+    "plan": {
+      "@id": "streamnative:plan",
+      "@type": "xsd:string"
+    },
+    "poolRef": {
+      "@id": "streamnative:poolRef",
+      "@type": "@id"
+    },
+    "cloud.v1alpha1.PulsarInstanceAuth": "streamnative:cloud.v1alpha1.PulsarInstanceAuth",
+    "apikey": {
+      "@id": "streamnative:apikey"
+    },
+    "oauth2": {
+      "@id": "streamnative:oauth2"
+    },
+    "cloud.v1alpha1.OAuth2Config": "streamnative:cloud.v1alpha1.OAuth2Config",
+    "tokenLifetimeSeconds": {
+      "@id": "streamnative:tokenLifetimeSeconds",
+      "@type": "xsd:integer"
+    },
+    "cloud.v1alpha1.PoolRef": "streamnative:cloud.v1alpha1.PoolRef",
+    "cloud.v1alpha1.PulsarInstanceStatus": "streamnative:cloud.v1alpha1.PulsarInstanceStatus",
+    "cloud.v1alpha1.PulsarInstanceStatusAuth": "streamnative:cloud.v1alpha1.PulsarInstanceStatusAuth",
+    "cloud.v1alpha1.PulsarInstanceStatusAuthOAuth2": "streamnative:cloud.v1alpha1.PulsarInstanceStatusAuthOAuth2",
+    "audience": {
+      "@id": "streamnative:audience",
+      "@type": "xsd:string"
+    },
+    "issuerURL": {
+      "@id": "streamnative:issuerURL",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.SecretList": "streamnative:cloud.v1alpha1.SecretList",
+    "cloud.v1alpha1.Secret": "streamnative:cloud.v1alpha1.Secret",
+    "data": {
+      "@id": "streamnative:data"
+    },
+    "cloud.v1alpha1.ServiceAccountBindingList": "streamnative:cloud.v1alpha1.ServiceAccountBindingList",
+    "cloud.v1alpha1.ServiceAccountBinding": "streamnative:cloud.v1alpha1.ServiceAccountBinding",
+    "cloud.v1alpha1.ServiceAccountBindingSpec": "streamnative:cloud.v1alpha1.ServiceAccountBindingSpec",
+    "cloud.v1alpha1.ServiceAccountBindingStatus": "streamnative:cloud.v1alpha1.ServiceAccountBindingStatus",
+    "cloud.v1alpha1.ServiceAccountList": "streamnative:cloud.v1alpha1.ServiceAccountList",
+    "cloud.v1alpha1.ServiceAccount": "streamnative:cloud.v1alpha1.ServiceAccount",
+    "cloud.v1alpha1.ServiceAccountStatus": "streamnative:cloud.v1alpha1.ServiceAccountStatus",
+    "privateKeyData": {
+      "@id": "streamnative:privateKeyData",
+      "@type": "xsd:string"
+    },
+    "privateKeyType": {
+      "@id": "streamnative:privateKeyType",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.UserList": "streamnative:cloud.v1alpha1.UserList",
+    "cloud.v1alpha1.User": "streamnative:cloud.v1alpha1.User",
+    "cloud.v1alpha1.UserSpec": "streamnative:cloud.v1alpha1.UserSpec",
+    "email": {
+      "@id": "streamnative:email",
+      "@type": "xsd:string"
+    },
+    "invitation": {
+      "@id": "streamnative:invitation"
+    },
+    "cloud.v1alpha1.Invitation": "streamnative:cloud.v1alpha1.Invitation",
+    "decision": {
+      "@id": "streamnative:decision",
+      "@type": "xsd:string"
+    },
+    "expiration": {
+      "@id": "streamnative:expiration"
+    },
+    "cloud.v1alpha1.UserName": "streamnative:cloud.v1alpha1.UserName",
+    "first": {
+      "@id": "streamnative:first",
+      "@type": "xsd:string"
+    },
+    "last": {
+      "@id": "streamnative:last",
+      "@type": "xsd:string"
+    },
+    "cloud.v1alpha1.UserStatus": "streamnative:cloud.v1alpha1.UserStatus",
+    "CompletableFuture": "streamnative:CompletableFuture",
+    "completedExceptionally": {
+      "@id": "streamnative:completedExceptionally",
+      "@type": "xsd:boolean"
+    },
+    "numberOfDependents": {
+      "@id": "streamnative:numberOfDependents",
+      "@type": "xsd:integer"
+    },
+    "done": {
+      "@id": "streamnative:done",
+      "@type": "xsd:boolean"
+    },
+    "cancelled": {
+      "@id": "streamnative:cancelled",
+      "@type": "xsd:boolean"
+    },
+    "CompletableFutureProduceResult": "streamnative:CompletableFutureProduceResult",
+    "KafkaConsumer": "streamnative:KafkaConsumer",
+    "consumer_group_id": {
+      "@id": "streamnative:consumer_group_id",
+      "@type": "xsd:string"
+    },
+    "consumer_id": {
+      "@id": "streamnative:consumer_id",
+      "@type": "xsd:string"
+    },
+    "client_id": {
+      "@id": "streamnative:client_id",
+      "@type": "xsd:string"
+    },
+    "host": {
+      "@id": "streamnative:host",
+      "@type": "xsd:string"
+    },
+    "KafkaConsumerGroup": "streamnative:KafkaConsumerGroup",
+    "partition_assignor": {
+      "@id": "streamnative:partition_assignor",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "streamnative:state",
+      "@type": "xsd:string"
+    },
+    "simple": {
+      "@id": "streamnative:simple",
+      "@type": "xsd:boolean"
+    },
+    "KafkaConsumerGroupList": "streamnative:KafkaConsumerGroupList",
+    "KafkaConsumerLag": "streamnative:KafkaConsumerLag",
+    "topic_name": {
+      "@id": "streamnative:topic_name",
+      "@type": "xsd:string"
+    },
+    "partition_id": {
+      "@id": "streamnative:partition_id",
+      "@type": "xsd:integer"
+    },
+    "current_offset": {
+      "@id": "streamnative:current_offset",
+      "@type": "xsd:integer"
+    },
+    "log_end_offset": {
+      "@id": "streamnative:log_end_offset",
+      "@type": "xsd:integer"
+    },
+    "lag": {
+      "@id": "streamnative:lag",
+      "@type": "xsd:integer"
+    },
+    "KafkaConsumerLagList": "streamnative:KafkaConsumerLagList",
+    "KafkaConsumerList": "streamnative:KafkaConsumerList",
+    "KafkaTopic": "streamnative:KafkaTopic",
+    "partitions_count": {
+      "@id": "streamnative:partitions_count",
+      "@type": "xsd:integer"
+    },
+    "internal": {
+      "@id": "streamnative:internal",
+      "@type": "xsd:boolean"
+    },
+    "KafkaTopicList": "streamnative:KafkaTopicList",
+    "TopicMessageConsumingDTO": "streamnative:TopicMessageConsumingDTO",
+    "bytesConsumed": {
+      "@id": "streamnative:bytesConsumed",
+      "@type": "xsd:integer"
+    },
+    "elapsedMs": {
+      "@id": "streamnative:elapsedMs",
+      "@type": "xsd:integer"
+    },
+    "isCancelled": {
+      "@id": "streamnative:isCancelled",
+      "@type": "xsd:boolean"
+    },
+    "messagesConsumed": {
+      "@id": "streamnative:messagesConsumed",
+      "@type": "xsd:integer"
+    },
+    "filterApplyErrors": {
+      "@id": "streamnative:filterApplyErrors",
+      "@type": "xsd:integer"
+    },
+    "TopicMessageDTO": "streamnative:TopicMessageDTO",
+    "partition": {
+      "@id": "streamnative:partition",
+      "@type": "xsd:integer"
+    },
+    "offset": {
+      "@id": "streamnative:offset",
+      "@type": "xsd:integer"
+    },
+    "timestamp": {
+      "@id": "streamnative:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "timestampType": {
+      "@id": "streamnative:timestampType",
+      "@type": "xsd:string"
+    },
+    "headers": {
+      "@id": "streamnative:headers"
+    },
+    "content": {
+      "@id": "streamnative:content",
+      "@type": "xsd:string"
+    },
+    "keyFormat": {
+      "@id": "streamnative:keyFormat",
+      "@type": "xsd:string"
+    },
+    "valueFormat": {
+      "@id": "streamnative:valueFormat",
+      "@type": "xsd:string"
+    },
+    "keySize": {
+      "@id": "streamnative:keySize",
+      "@type": "xsd:integer"
+    },
+    "valueSize": {
+      "@id": "streamnative:valueSize",
+      "@type": "xsd:integer"
+    },
+    "keySchemaId": {
+      "@id": "streamnative:keySchemaId",
+      "@type": "xsd:string"
+    },
+    "valueSchemaId": {
+      "@id": "streamnative:valueSchemaId",
+      "@type": "xsd:string"
+    },
+    "headersSize": {
+      "@id": "streamnative:headersSize",
+      "@type": "xsd:integer"
+    },
+    "keySerde": {
+      "@id": "streamnative:keySerde",
+      "@type": "xsd:string"
+    },
+    "valueSerde": {
+      "@id": "streamnative:valueSerde",
+      "@type": "xsd:string"
+    },
+    "keyDeserializeProperties": {
+      "@id": "streamnative:keyDeserializeProperties"
+    },
+    "valueDeserializeProperties": {
+      "@id": "streamnative:valueDeserializeProperties"
+    },
+    "TopicMessageEventDTO": "streamnative:TopicMessageEventDTO",
+    "phase": {
+      "@id": "streamnative:phase",
+      "@type": "@id"
+    },
+    "consuming": {
+      "@id": "streamnative:consuming",
+      "@type": "@id"
+    },
+    "TopicMessagePhaseDTO": "streamnative:TopicMessagePhaseDTO"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "StreamNative API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects StreamNative's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-13) from openapi/streamnative-cloud-apikey-openapi.yml, openapi/streamnative-cloud-cloudconnection-openapi.yml, openapi/streamnative-cloud-cloudenvironment-openapi.yml.",
+  "dcterms:created": "2026-10-13",
+  "dcterms:source": [
+    "openapi/streamnative-cloud-apikey-openapi.yml",
+    "openapi/streamnative-cloud-cloudconnection-openapi.yml",
+    "openapi/streamnative-cloud-cloudenvironment-openapi.yml",
+    "openapi/streamnative-cloud-pulsarcluster-openapi.yml",
+    "openapi/streamnative-cloud-pulsargateway-openapi.yml"
+  ]
+}

@@ -1,0 +1,19 @@
+generated: '2026-10-13'
+method: searched
+source: https://docs.streamnative.io/api-references/cloudapi/cloud-api
+docs: https://docs.streamnative.io/api-references/cloudapi/cloud-api
+summary: >-
+  "StreamNative cloud supports OAuth2 authentication to managing cloud resources." The Cloud API uses the
+  OAuth2 client credential flow against https://auth.streamnative.cloud/oauth/token with a service account
+  downloaded from the console; the Kafka REST API is called with 'Authorization: Bearer <your-token>'.
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://auth.streamnative.cloud/oauth/token
+  applies_to: [StreamNative Cloud API]
+- name: bearerToken
+  type: http
+  scheme: bearer
+  applies_to: [StreamNative Kafka REST API]
+  source: https://docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api

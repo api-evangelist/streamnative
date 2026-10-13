@@ -1,0 +1,625 @@
+openapi: 3.0.0
+info:
+  title: StreamNative Kafka REST API
+  description: REST API for managing Kafka resources and producing/consuming messages
+    in StreamNative Cloud
+  version: v1
+paths:
+  /admin/v1/consumer-groups:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return the list of consumer groups.
+      description: Lists all consumer groups in the Kafka cluster. Returns a collection
+        of consumer group objects with their basic metadata.
+      operationId: listConsumerGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerGroupList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}/lags:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return a list of consumer lags of the consumers belonging to the specified
+        consumer group.
+      description: Retrieves consumer lag information for all topic partitions consumed
+        by the specified consumer group. Lag represents the difference between the
+        latest offset and the consumer's current position.
+      operationId: getConsumerGroupLags
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerLagList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return the consumer group specified by the consumer_group_id.
+      description: Gets detailed information about a specific consumer group identified
+        by its ID. Returns consumer group metadata including state, members, and assigned
+        partitions.
+      operationId: listConsumerGroupsSpecifiedByTheConsumerGroupId
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerGroup'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}/consumers:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return a list of consumers that belong to the specified consumer group.
+      description: Lists all active consumers that are members of the specified consumer
+        group. Includes consumer metadata such as client ID, host, and partition assignments.
+      operationId: listConsumersBySpecifiedConsumerGroup
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics:
+    get:
+      tags:
+      - ksn-topics
+      summary: Return the list of topics.
+      description: Lists all topics in the Kafka cluster or within a specific namespace.
+        Returns topic metadata including partition count and internal/external topic
+        classification.
+      operationId: listTopics
+      parameters:
+      - name: namespace
+        in: query
+        description: List topics for the special namespace.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaTopicList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - ksn-topics
+      summary: Create topic.
+      description: Creates a new topic in the Kafka cluster with the specified configuration.
+        You can set partitions, replication factor, and other topic-level configurations.
+      operationId: createTopic
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: The topic created successfully.
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}:
+    get:
+      tags:
+      - ksn-topics
+      summary: Return the topic with the given topic_name.
+      description: Retrieves detailed information about a specific topic identified
+        by its name. Returns topic metadata including configuration, partition details,
+        and replication settings.
+      operationId: getTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The topic with the given topic_name.
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+      - ksn-topics
+      summary: Delete the topic with the given topic_name.
+      description: Permanently deletes the specified topic and all its data from the
+        Kafka cluster. This operation cannot be undone.
+      operationId: deleteTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Topic deleted
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/messages:
+    get:
+      tags:
+      - ksn-topics
+      summary: Get messages from a topic
+      description: Get messages from a topic
+      operationId: getTopicMessages
+      parameters:
+      - name: topicName
+        in: path
+        description: Topic name
+        required: true
+        schema:
+          type: string
+      - name: seekType
+        in: query
+        description: Seek type
+        required: false
+        schema:
+          type: string
+          enum:
+          - BEGINNING
+          - OFFSET
+          - TIMESTAMP
+          - LATEST
+      - name: seekTo
+        in: query
+        description: The format is [partition]::[offset] for specifying offsets or
+          [partition]::[timestamp in millis] for specifying timestamps
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        description: Query
+        required: false
+        schema:
+          type: string
+      - name: keySerde
+        in: query
+        description: Serde that should be used for deserialization. Supports `String`,
+          `Base64`, `Hex`, `SchemaRegistry`, `ProtobufDecodeRaw`, and `Avro (Embedded)`
+        required: false
+        schema:
+          type: string
+      - name: valueSerde
+        in: query
+        description: Serde that should be used for deserialization. Supports `String`,
+          `Base64`, `Hex`, `SchemaRegistry`, `ProtobufDecodeRaw`, and `Avro (Embedded)`
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/event-stream:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopicMessageEventDTO'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/records:
+    post:
+      tags:
+      - ksn-topics
+      summary: Produce records to the given topic, returning delivery reports for
+        each record produced.
+      description: Produces one or more records to the specified topic. Each record
+        can include a key, value, headers, and optional partition assignment. Returns
+        delivery reports confirming successful production.
+      operationId: produceRecords
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaTopicList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/unload:
+    put:
+      tags:
+      - ksn-topics
+      summary: 'Unload the topic with the given topic_name. '
+      description: Unloads a topic from memory on the broker, releasing resources
+        while preserving data. This operation is useful for reducing memory usage
+        on topics that are not actively being used.
+      operationId: unloadTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name format is `tenant.namespace.topic`. Or topic with
+          specific partition can be unloaded by using `tenant.namespace.topic-partition`
+          format.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Topic unloaded successfully
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    AdminClient:
+      type: object
+    CompletableFuture:
+      type: object
+      properties:
+        completedExceptionally:
+          type: boolean
+        numberOfDependents:
+          type: integer
+          format: int32
+        done:
+          type: boolean
+        cancelled:
+          type: boolean
+    CompletableFutureProduceResult:
+      type: object
+      properties:
+        completedExceptionally:
+          type: boolean
+        numberOfDependents:
+          type: integer
+          format: int32
+        done:
+          type: boolean
+        cancelled:
+          type: boolean
+    EnhancedConsumer:
+      type: object
+    KafkaConsumer:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        consumer_id:
+          type: string
+        client_id:
+          type: string
+        host:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerGroup:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        partition_assignor:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        simple:
+          type: boolean
+        kind:
+          type: string
+    KafkaConsumerGroupList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumerGroup'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerLag:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        topic_name:
+          type: string
+        partition_id:
+          type: integer
+          format: int32
+        consumer_id:
+          type: string
+        host:
+          type: string
+        client_id:
+          type: string
+        current_offset:
+          type: integer
+          format: int64
+        log_end_offset:
+          type: integer
+          format: int64
+        lag:
+          type: integer
+          format: int64
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerLagList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumerLag'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumer'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaTopic:
+      type: object
+      properties:
+        topic_name:
+          type: string
+        partitions_count:
+          type: integer
+          format: int32
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        internal:
+          type: boolean
+        kind:
+          type: string
+    KafkaTopicList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaTopic'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    Metadata:
+      type: object
+    Producer:
+      type: object
+    ProducerByte[]Byte[]:
+      type: object
+    SchemaManagerImpl:
+      type: object
+    TopicMessageConsumingDTO:
+      type: object
+      properties:
+        bytesConsumed:
+          type: integer
+          format: int64
+        elapsedMs:
+          type: integer
+          format: int64
+        isCancelled:
+          type: boolean
+        messagesConsumed:
+          type: integer
+          format: int32
+        filterApplyErrors:
+          type: integer
+          format: int32
+    TopicMessageDTO:
+      type: object
+      required:
+      - offset
+      - partition
+      - timestamp
+      properties:
+        partition:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+        timestampType:
+          type: string
+          enum:
+          - NO_TIMESTAMP_TYPE
+          - CREATE_TIME
+          - LOG_APPEND_TIME
+        key:
+          type: string
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        content:
+          type: string
+        keyFormat:
+          type: string
+          enum:
+          - AVRO
+          - JSON
+          - PROTOBUF
+          - UNKNOWN
+        valueFormat:
+          type: string
+          enum:
+          - AVRO
+          - JSON
+          - PROTOBUF
+          - UNKNOWN
+        keySize:
+          type: integer
+          format: int64
+        valueSize:
+          type: integer
+          format: int64
+        keySchemaId:
+          type: string
+        valueSchemaId:
+          type: string
+        headersSize:
+          type: integer
+          format: int64
+        keySerde:
+          type: string
+        valueSerde:
+          type: string
+        keyDeserializeProperties:
+          type: object
+          additionalProperties:
+            type: object
+        valueDeserializeProperties:
+          type: object
+          additionalProperties:
+            type: object
+    TopicMessageEventDTO:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - PHASE
+          - MESSAGE
+          - CONSUMING
+          - DONE
+          - EMIT_THROTTLING
+        message:
+          $ref: '#/components/schemas/TopicMessageDTO'
+        phase:
+          $ref: '#/components/schemas/TopicMessagePhaseDTO'
+        consuming:
+          $ref: '#/components/schemas/TopicMessageConsumingDTO'
+    TopicMessagePhaseDTO:
+      type: object
+      properties:
+        name:
+          type: string
+    TopicPartition:
+      type: object
+servers:
+- url: https://{httpServiceUrl}/rest-kafka
+  description: Per-cluster HTTP service URL (docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api)
+  variables:
+    httpServiceUrl:
+      default: your-http-service-url-tls
+x-source: https://docs.streamnative.io/apis/kafka-rest-api/kafka-rest-api-v1.json

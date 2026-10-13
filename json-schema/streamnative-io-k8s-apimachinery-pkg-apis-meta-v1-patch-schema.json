@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streamnative/main/json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json",
+  "title": "io.k8s.apimachinery.pkg.apis.meta.v1.Patch",
+  "description": "Patch is provided to give a concrete name and type to the Kubernetes PATCH request body.",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/streamnative-cloud-apikey-openapi.yml#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch",
+  "type": "object"
+}

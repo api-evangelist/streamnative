@@ -1,0 +1,30 @@
+name: StreamNative MCP Servers
+generated: '2026-10-13'
+method: searched
+source: https://github.com/streamnative/streamnative-mcp-server
+status: published
+deployment:
+  mode: both
+  endpoint: https://docs.streamnative.io/mcp
+  install: brew tap streamnative/streamnative && brew install streamnative/streamnative/snmcp
+  package: https://github.com/streamnative/streamnative-mcp-server
+  auth: unknown
+  verified: probed
+note: >-
+  Two distinct servers. The remote endpoint https://docs.streamnative.io/mcp is a documentation MCP
+  (tools/list probed anonymously 2026-10-13, HTTP 200, 3 tools). The product MCP server (snmcp) manages
+  StreamNative Cloud, Kafka and Pulsar resources and ships as a Homebrew formula, a Docker image
+  (streamnative/snmcp) and release binaries; it runs locally as stdio or SSE and authenticates with a
+  StreamNative Cloud service-account key file.
+servers:
+- name: StreamNative Documentation MCP
+  endpoint: https://docs.streamnative.io/mcp
+  transport: streamable-http
+  tools:
+  - name: search_stream_native_documentation
+  - name: query_docs_filesystem_stream_native_documentation
+  - name: submit_feedback
+- name: snmcp (StreamNative MCP Server)
+  repository: https://github.com/streamnative/streamnative-mcp-server
+  docker: https://hub.docker.com/r/streamnative/snmcp
+  transports: [stdio, sse]

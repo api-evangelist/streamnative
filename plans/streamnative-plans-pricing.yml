@@ -1,0 +1,40 @@
+name: StreamNative Cloud Pricing
+generated: '2026-10-13'
+method: searched
+source: https://streamnative.io/pricing
+audience: business-product
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+plans:
+- name: Serverless
+  description: Hosted on shared infrastructure, fully managed by StreamNative.
+  price: 73
+  price_text: Starting at $73/month
+  currency: USD
+  billing_period: month
+  features:
+  - Instant cluster creation with zero base cost
+  - Autoscaling based on workloads with predictable performance
+  - Support all available protocols (Pulsar, Kafka, MQTT, REST, and more)
+  limits: []
+- name: Dedicated
+  description: Dedicated clusters hosted in AWS, GCP, or Azure.
+  price: 505
+  price_text: Starting at $505/month
+  currency: USD
+  billing_period: month
+  features:
+  - Fully managed with enterprise-grade SLAs
+  - Single-AZ and Multi-AZ deployment options
+  limits: []
+- name: BYOC
+  description: BYOC (Bring Your Own Cloud) clusters are hosted on your cloud, and fully managed by StreamNative.
+  price: 365
+  price_text: Starting at $365/month
+  currency: USD
+  billing_period: month
+  features:
+  - Deployed in your cloud account, fully managed by StreamNative
+  - Dedicated VPC with Private Link networking
+  limits: []

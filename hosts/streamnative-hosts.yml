@@ -1,0 +1,175 @@
+generated: '2026-10-13'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 14
+  own: 8
+  other_domain: 5
+  platform: 1
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - source
+  - support
+  - website
+hosts:
+- host: api.streamnative.cloud
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: streamnative.cloud
+  role: api
+  relation: other-domain
+- host: api.streamnative.io
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: streamnative.io
+  role: api
+  relation: own
+- host: calculator.streamnative.io
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: streamnative.io
+  role: other
+  relation: own
+- host: console.streamnative.cloud
+  found_by:
+  - pointer
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: streamnative.cloud
+  role: identity
+  relation: other-domain
+- host: courses.streamnative.io
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: streamnative.io
+  role: other
+  relation: own
+- host: docs.streamnative.io
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - namespace-probe
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - Documentation
+  - APIReference
+  - GettingStarted
+  serves:
+  - docs
+  title: Start building with StreamNative - StreamNative Documentation
+  status: 200
+  registrable_domain: streamnative.io
+  role: docs
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.streamnative.io
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - docs-index
+  - well-known
+  types:
+  - HelpCenter
+  serves:
+  - docs
+  registrable_domain: streamnative.io
+  role: support
+  relation: own
+- host: kafka.apache.org
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: apache.org
+  role: other
+  relation: other-domain
+- host: mintlify.com
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: mintlify.com
+  role: other
+  relation: other-domain
+- host: pulsar.apache.org
+  found_by:
+  - docs-index
+  types: []
+  serves:
+  - docs
+  registrable_domain: apache.org
+  role: other
+  relation: other-domain
+- host: streamnative.io
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Website
+  - Blog
+  - Pricing
+  - TermsOfService
+  - PrivacyPolicy
+  serves: []
+  registrable_domain: streamnative.io
+  role: website
+  relation: own
+- host: support.streamnative.io
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - well-known
+  types:
+  - Support
+  serves: []
+  registrable_domain: streamnative.io
+  role: support
+  relation: own
+- host: trust.streamnative.io
+  found_by:
+  - probed
+  - site-links
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: streamnative.io
+  role: other
+  relation: own

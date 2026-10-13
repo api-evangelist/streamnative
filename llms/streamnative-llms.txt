@@ -1,0 +1,41 @@
+# StreamNative Documentation
+
+- [StreamNative Cloud (807 pages)](https://docs.streamnative.io/_llms/stream-native-cloud.txt): Serverless, Dedicated, and BYOC
+- [StreamNative Private Cloud (295 pages)](https://docs.streamnative.io/_llms/stream-native-private-cloud.txt): Self-managed on Kubernetes
+
+## Other
+
+- [Kafka Connectors](https://docs.streamnative.io/cloud/connect/kafka-connect/kafka-connect-index.md)
+- [Deploy Lakehouse Table](https://docs.streamnative.io/cloud/lakehouse/deploy-lakehouse-table.md)
+- [Dynamic Configuration Guide](https://docs.streamnative.io/cloud/lakehouse/dynamic-configuration.md)
+- [Catalog Preparation Guides](https://docs.streamnative.io/cloud/lakehouse/prepare-catalogs/README.md)
+- [Pulsar Functions](https://docs.streamnative.io/cloud/process/pulsar-functions/functions-index.md)
+- [StreamNative Kafka Service](https://docs.streamnative.io/kafka/kafka-home.md): Native Apache Kafka on the Lakestream architecture. Get started with managed Kafka in minutes.
+
+## OpenAPI Specs
+
+- [apikey](/apis/cloudapi/apikey.json)
+- [cloudconnection](/apis/cloudapi/cloudconnection.json)
+- [cloudenvironment](/apis/cloudapi/cloudenvironment.json)
+- [pulsarcluster](/apis/cloudapi/pulsarcluster.json)
+- [pulsargateway](/apis/cloudapi/pulsargateway.json)
+- [pulsarinstance](/apis/cloudapi/pulsarinstance.json)
+- [secrets](/apis/cloudapi/secrets.json)
+- [serviceaccount](/apis/cloudapi/serviceaccount.json)
+- [user](/apis/cloudapi/user.json)
+- [kafka-rest-api-v1](/apis/kafka-rest-api/kafka-rest-api-v1.json)
+
+> The links below point to documentation indexes. Follow each `/_llms/` index recursively until you reach documentation pages.
+
+## Indexes
+
+- [StreamNative Cloud (807 pages)](https://docs.streamnative.io/_llms/stream-native-cloud.txt): Serverless, Dedicated, and BYOC
+- [StreamNative Cloud / Pulsar (406 pages)](https://docs.streamnative.io/_llms/stream-native-cloud/pulsar.txt): Documentation for StreamNative Cloud / Pulsar.
+- [StreamNative Cloud / Kafka (164 pages)](https://docs.streamnative.io/_llms/stream-native-cloud/kafka.txt): Documentation for StreamNative Cloud / Kafka.
+- [StreamNative Cloud / Resources (146 pages)](https://docs.streamnative.io/_llms/stream-native-cloud/resources.txt): Documentation for StreamNative Cloud / Resources.
+- [StreamNative Private Cloud (295 pages)](https://docs.streamnative.io/_llms/stream-native-private-cloud.txt): Self-managed on Kubernetes
+- [StreamNative Private Cloud / Pulsar (283 pages)](https://docs.streamnative.io/_llms/stream-native-private-cloud/pulsar.txt): Documentation for StreamNative Private Cloud / Pulsar.
+- [StreamNative Private Cloud / Pulsar / V1 (200 pages)](https://docs.streamnative.io/_llms/stream-native-private-cloud/pulsar/v1.txt): Documentation for StreamNative Private Cloud / Pulsar / V1.
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

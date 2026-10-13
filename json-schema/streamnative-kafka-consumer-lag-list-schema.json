@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streamnative/main/json-schema/streamnative-kafka-consumer-lag-list-schema.json",
+  "title": "KafkaConsumerLagList",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/streamnative-kafka-rest-openapi.yml#/components/schemas/KafkaConsumerLagList",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/KafkaConsumerLag"
+      }
+    },
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+    "kind": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "KafkaConsumerLag": {
+      "type": "object",
+      "properties": {
+        "consumer_group_id": {
+          "type": "string"
+        },
+        "topic_name": {
+          "type": "string"
+        },
+        "partition_id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "consumer_id": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "client_id": {
+          "type": "string"
+        },
+        "current_offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "log_end_offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lag": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "metadata": {
+          "$ref": "#/$defs/Metadata"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object"
+    }
+  }
+}

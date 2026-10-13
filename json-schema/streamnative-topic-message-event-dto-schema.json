@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/streamnative/main/json-schema/streamnative-topic-message-event-dto-schema.json",
+  "title": "TopicMessageEventDTO",
+  "x-generated": "2026-10-13",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/streamnative-kafka-rest-openapi.yml#/components/schemas/TopicMessageEventDTO",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "PHASE",
+        "MESSAGE",
+        "CONSUMING",
+        "DONE",
+        "EMIT_THROTTLING"
+      ]
+    },
+    "message": {
+      "$ref": "#/$defs/TopicMessageDTO"
+    },
+    "phase": {
+      "$ref": "#/$defs/TopicMessagePhaseDTO"
+    },
+    "consuming": {
+      "$ref": "#/$defs/TopicMessageConsumingDTO"
+    }
+  },
+  "$defs": {
+    "TopicMessageConsumingDTO": {
+      "type": "object",
+      "properties": {
+        "bytesConsumed": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "elapsedMs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "isCancelled": {
+          "type": "boolean"
+        },
+        "messagesConsumed": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filterApplyErrors": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "TopicMessageDTO": {
+      "type": "object",
+      "required": [
+        "offset",
+        "partition",
+        "timestamp"
+      ],
+      "properties": {
+        "partition": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "timestampType": {
+          "type": "string",
+          "enum": [
+            "NO_TIMESTAMP_TYPE",
+            "CREATE_TIME",
+            "LOG_APPEND_TIME"
+          ]
+        },
+        "key": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "content": {
+          "type": "string"
+        },
+        "keyFormat": {
+          "type": "string",
+          "enum": [
+            "AVRO",
+            "JSON",
+            "PROTOBUF",
+            "UNKNOWN"
+          ]
+        },
+        "valueFormat": {
+          "type": "string",
+          "enum": [
+            "AVRO",
+            "JSON",
+            "PROTOBUF",
+            "UNKNOWN"
+          ]
+        },
+        "keySize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "valueSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keySchemaId": {
+          "type": "string"
+        },
+        "valueSchemaId": {
+          "type": "string"
+        },
+        "headersSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "keySerde": {
+          "type": "string"
+        },
+        "valueSerde": {
+          "type": "string"
+        },
+        "keyDeserializeProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "valueDeserializeProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "TopicMessagePhaseDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
