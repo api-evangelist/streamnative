@@ -1,16 +1,50 @@
 generated: '2026-10-13'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/streamnative/integrations
 - https://n8n.io/integrations/streamnative/
 - https://composio.dev/toolkits/streamnative
 - https://monid.ai/tools/streamnative
 checked:
+- https://a2aregistry.org/api/agents
 - https://composio.dev/toolkits/streamnative
 - https://monid.ai/tools/streamnative
 - https://n8n.io/integrations/streamnative/
 - https://zapier.com/apps/streamnative/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: A2A protocol (own Agent Card)
+  partner: null
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: A2A agent
+  evidence: https://docs.streamnative.io/.well-known/agent-card.json
+  channel: provider-built
+  relationship: compatible
+  shape: a2a
+  evidence_kind: own-wellknown
+  degree: conformant
+  report_only: true
+  a2a_card:
+    grade: conformant
+    verdict: live
+    protocol_version: '0.3'
+    deviations:
+    - supportedInterfaces-instead-of-additionalInterfaces
+    card_subject: null
+  contract_reference:
+    register: provider's own /.well-known/agent-card.json
+    spec_file: null
+    standard: A2A
+    role: a2a-agent-card
+    registered_name: StreamNative Documentation
+    organization: StreamNative Documentation
+    matched_domain: streamnative.io
+    matched_by: own-domain
+    detected_by: sweep-ai-agents.py
+    detected: '2026-10-15'
+  detected_by: sweep-ai-agents.py
+  first_seen: '2026-10-15'
 templates: []
