@@ -1,14 +1,16 @@
+# x-archived-from: streamnative-cloud-pulsargateway-openapi.yml
+# x-archived-on: 2026-10-17
 openapi: 3.0.0
 info:
-  title: StreamNative Cloud API - Cloud Connections
+  title: StreamNative Cloud API - Pulsar Gateways
   version: v1alpha1
 paths:
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudconnections:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsargateways:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: list or watch objects of kind CloudConnection
-      operationId: listCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      description: list or watch objects of kind PulsarGateway
+      operationId: listCloudStreamnativeIoV1alpha1NamespacedPulsarGateway
       parameters:
       - name: allowWatchBookmarks
         in: query
@@ -130,25 +132,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayList'
             application/json;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayList'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayList'
             application/vnd.kubernetes.protobuf;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayList'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayList'
       x-kubernetes-action: list
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: CloudConnection
-      summary: List cloudconnectionss
+        kind: PulsarGateway
+      summary: List pulsargatewayss
     parameters:
     - name: namespace
       in: path
@@ -163,36 +165,36 @@ paths:
       schema:
         type: string
         uniqueItems: true
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudconnections/{name}:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsargateways/{name}:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: read the specified CloudConnection
-      operationId: readCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      description: read the specified PulsarGateway
+      operationId: readCloudStreamnativeIoV1alpha1NamespacedPulsarGateway
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
       x-kubernetes-action: get
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: CloudConnection
-      summary: Get cloudconnections
+        kind: PulsarGateway
+      summary: Get pulsargateways
     post:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: replace the specified CloudConnection
-      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      description: replace the specified PulsarGateway
+      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedPulsarGateway
       parameters:
       - name: dryRun
         in: query
@@ -215,43 +217,43 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+              $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
       x-kubernetes-action: post
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: CloudConnection
-      summary: Update cloudconnections
+        kind: PulsarGateway
+      summary: Update pulsargateways
     delete:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: delete a CloudConnection
-      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      description: delete a PulsarGateway
+      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedPulsarGateway
       parameters:
       - name: dryRun
         in: query
@@ -322,13 +324,13 @@ paths:
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: CloudConnection
-      summary: Delete cloudconnections
+        kind: PulsarGateway
+      summary: Delete pulsargateways
     patch:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: partially update the specified CloudConnection
-      operationId: patchCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      description: partially update the specified PulsarGateway
+      operationId: patchCloudStreamnativeIoV1alpha1NamespacedPulsarGateway
       parameters:
       - name: dryRun
         in: query
@@ -377,35 +379,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
       x-kubernetes-action: patch
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: CloudConnection
-      summary: Patch cloudconnections
+        kind: PulsarGateway
+      summary: Patch pulsargateways
     parameters:
     - name: name
       in: path
-      description: name of the CloudConnection
+      description: name of the PulsarGateway
       required: true
       schema:
         type: string
@@ -425,7 +427,7 @@ paths:
         uniqueItems: true
 components:
   schemas:
-    cloud.v1alpha1.CloudConnectionList:
+    cloud.v1alpha1.PulsarGatewayList:
       type: object
       required:
       - items
@@ -440,7 +442,7 @@ components:
           items:
             default: {}
             allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+            - $ref: '#/components/schemas/cloud.v1alpha1.PulsarGateway'
         kind:
           description: 'Kind is a string value representing the REST resource this
             object represents. Servers may infer this from the endpoint the client
@@ -452,18 +454,12 @@ components:
           - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: CloudConnectionList
+        kind: PulsarGatewayList
         version: v1alpha1
-    cloud.v1alpha1.CloudConnection:
-      description: 'CloudConnection represents a connection to the customer''s cloud
-        environment Currently, this object *only* is used to serve as an inventory
-        of customer connections and make sure that they remain valid. In the future,
-        we might consider this object to be used by other objects, but existing APIs
-        already take care of that
-
-
-        Other internal options are defined in the CloudConnectionBackendConfig type
-        which is the "companion" CRD to this user facing API'
+    cloud.v1alpha1.PulsarGateway:
+      description: PulsarGateway comprises resources for exposing pulsar endpoint,
+        including the Ingress Gateway in PoolMember and corresponding Private Endpoint
+        Service in Cloud Provider.
       type: object
       properties:
         apiVersion:
@@ -483,14 +479,14 @@ components:
         spec:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionSpec'
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewaySpec'
         status:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionStatus'
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarGatewayStatus'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: CloudConnection
+        kind: PulsarGateway
         version: v1alpha1
     io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta:
       description: ObjectMeta is metadata that all persisted resources must have,
@@ -777,74 +773,85 @@ components:
           type: string
           default: ''
       x-kubernetes-map-type: atomic
-    cloud.v1alpha1.CloudConnectionSpec:
-      description: CloudConnectionSpec defines the desired state of CloudConnection
-      type: object
-      required:
-      - type
-      properties:
-        aws:
-          $ref: '#/components/schemas/cloud.v1alpha1.AWSCloudConnection'
-        azure:
-          $ref: '#/components/schemas/cloud.v1alpha1.AzureConnection'
-        gcp:
-          $ref: '#/components/schemas/cloud.v1alpha1.GCPCloudConnection'
-        type:
-          type: string
-          default: ''
-    cloud.v1alpha1.AWSCloudConnection:
-      type: object
-      required:
-      - accountId
-      properties:
-        accountId:
-          type: string
-          default: ''
-    cloud.v1alpha1.AzureConnection:
-      type: object
-      required:
-      - subscriptionId
-      - tenantId
-      - clientId
-      - supportClientId
-      properties:
-        clientId:
-          type: string
-          default: ''
-        subscriptionId:
-          type: string
-          default: ''
-        supportClientId:
-          type: string
-          default: ''
-        tenantId:
-          type: string
-          default: ''
-    cloud.v1alpha1.GCPCloudConnection:
-      type: object
-      required:
-      - projectId
-      properties:
-        projectId:
-          type: string
-          default: ''
-    cloud.v1alpha1.CloudConnectionStatus:
-      description: CloudConnectionStatus defines the observed state of CloudConnection
+    cloud.v1alpha1.PulsarGatewaySpec:
       type: object
       properties:
-        availableLocations:
+        access:
+          description: Access is the access type of the pulsar gateway, available
+            values are public or private. It is immutable, with the default value
+            public.
+          type: string
+        domains:
+          description: Domains is the list of domain suffix that the pulsar gateway
+            will serve. This is automatically generated based on the PulsarGateway
+            name and PoolMember domain.
           type: array
           items:
             default: {}
             allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.RegionInfo'
-          x-kubernetes-list-map-keys:
-          - region
-          x-kubernetes-list-type: map
-          x-kubernetes-patch-merge-key: region
-          x-kubernetes-patch-strategy: merge
-        awsPolicyVersion:
+            - $ref: '#/components/schemas/cloud.v1alpha1.Domain'
+          x-kubernetes-list-type: atomic
+        poolMemberRef:
+          description: PoolMemberRef is the reference to the PoolMember that the PulsarGateway
+            will be deployed.
+          default: {}
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PoolMemberReference'
+        privateService:
+          description: PrivateService is the configuration of the private endpoint
+            service, only can be configured when the access type is private.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PrivateService'
+    cloud.v1alpha1.Domain:
+      type: object
+      required:
+      - name
+      properties:
+        name:
           type: string
+          default: ''
+        tls:
+          $ref: '#/components/schemas/cloud.v1alpha1.DomainTLS'
+        type:
+          type: string
+    cloud.v1alpha1.DomainTLS:
+      type: object
+      properties:
+        certificateName:
+          description: CertificateName specifies the certificate object name to use.
+          type: string
+    cloud.v1alpha1.PoolMemberReference:
+      description: PoolMemberReference is a reference to a pool member with a given
+        name.
+      type: object
+      required:
+      - namespace
+      - name
+      properties:
+        name:
+          type: string
+          default: ''
+        namespace:
+          type: string
+          default: ''
+    cloud.v1alpha1.PrivateService:
+      type: object
+      properties:
+        allowedIds:
+          description: AllowedIds is the list of Ids that are allowed to connect to
+            the private endpoint service, only can be configured when the access type
+            is private, private endpoint service will be disabled if the whitelist
+            is empty.
+          type: array
+          items:
+            type: string
+            default: ''
+          x-kubernetes-list-type: atomic
+    cloud.v1alpha1.PulsarGatewayStatus:
+      type: object
+      required:
+      - observedGeneration
+      properties:
         conditions:
           description: Conditions is an array of current observed conditions.
           type: array
@@ -857,20 +864,21 @@ components:
           x-kubernetes-list-type: map
           x-kubernetes-patch-merge-key: type
           x-kubernetes-patch-strategy: merge
-    cloud.v1alpha1.RegionInfo:
-      type: object
-      required:
-      - region
-      - zones
-      properties:
-        region:
-          type: string
-          default: ''
-        zones:
+        observedGeneration:
+          description: ObservedGeneration is the most recent generation observed by
+            the pulsargateway controller.
+          type: integer
+          format: int64
+          default: 0
+        privateServiceIds:
+          description: PrivateServiceIds are the id of the private endpoint services,
+            only exposed when the access type is private.
           type: array
           items:
-            type: string
-            default: ''
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/cloud.v1alpha1.PrivateServiceId'
+          x-kubernetes-list-type: atomic
     cloud.v1alpha1.Condition:
       description: 'Condition represents an observation of an object''s state. Conditions
         are an extension mechanism intended to be used when the details of an observation
@@ -909,6 +917,13 @@ components:
         type:
           type: string
           default: ''
+    cloud.v1alpha1.PrivateServiceId:
+      type: object
+      properties:
+        id:
+          description: Id is the identifier of private service It is endpoint service
+            name in AWS, psc attachment id in GCP, private service alias in Azure
+          type: string
     io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta:
       description: ListMeta describes metadata that synthetic resources must have,
         including lists and various status objects. A resource may have only one of
@@ -1203,4 +1218,4 @@ components:
 servers:
 - url: https://api.streamnative.cloud
   description: StreamNative Cloud API (docs.streamnative.io/api-references/cloudapi/cloud-api)
-x-source: https://docs.streamnative.io/apis/cloudapi/cloudconnection.json
+x-source: https://docs.streamnative.io/apis/cloudapi/pulsargateway.json

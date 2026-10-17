@@ -87,20 +87,17 @@ common:
 - type: PrivacyPolicy
   url: https://streamnative.io/privacy
 apis:
-- aid: streamnative:cloud-apikey
-  name: StreamNative Cloud API - API Keys
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing api keys within an organization namespace, authenticated with OAuth2 client-credential access tokens.
+- aid: streamnative:streamnative-cloudstreamnativeio-v1alpha1-api
+  name: StreamNative Cloud Streamnative Io V1alpha1 API
+  description: >-
+    The cloudStreamnativeIo_v1alpha1 API from StreamNative — 20 operation(s) for cloudstreamnativeio_v1alpha1.
   humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
   baseURL: https://api.streamnative.cloud
   tags:
-  - Cloud Management
-  - API Keys
+  - cloudStreamnativeIo_v1alpha1
   properties:
   - type: OpenAPI
-    url: openapi/streamnative-cloud-apikey-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/apikey.json
+    url: openapi/streamnative-cloudstreamnativeio-v1alpha1-api-openapi.yml
   - type: Documentation
     url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
   - type: JSONSchema
@@ -111,166 +108,30 @@ apis:
     url: json-schema/streamnative-cloud-v1alpha1-apikey-list-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-cloudconnection
-  name: StreamNative Cloud API - Cloud Connections
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing cloud connections within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Cloud Connections
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-cloudconnection-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/cloudconnection.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-list-schema.json
   - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-cloudenvironment
-  name: StreamNative Cloud API - Cloud Environments
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing cloud environments within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Cloud Environments
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-cloudenvironment-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/cloudenvironment.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
-  - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-list-schema.json
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-pulsarcluster
-  name: StreamNative Cloud API - Pulsar Clusters
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing pulsar clusters within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Pulsar Clusters
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-pulsarcluster-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/pulsarcluster.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-list-schema.json
   - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-pulsargateway
-  name: StreamNative Cloud API - Pulsar Gateways
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing pulsar gateways within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Pulsar Gateways
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-pulsargateway-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/pulsargateway.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
-  - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-list-schema.json
   - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-pulsarinstance
-  name: StreamNative Cloud API - Pulsar Instances
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing pulsar instances within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Pulsar Instances
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-pulsarinstance-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/pulsarinstance.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
-  - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-list-schema.json
-- aid: streamnative:cloud-secrets
-  name: StreamNative Cloud API - Secrets
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing secrets within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Secrets
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-secrets-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/secrets.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-secret-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-secret-list-schema.json
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-serviceaccount
-  name: StreamNative Cloud API - Service Accounts
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing service accounts within an organization namespace, authenticated with OAuth2 client-credential access tokens.
-  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  baseURL: https://api.streamnative.cloud
-  tags:
-  - Cloud Management
-  - Service Accounts
-  properties:
-  - type: OpenAPI
-    url: openapi/streamnative-cloud-serviceaccount-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/serviceaccount.json
-  - type: Documentation
-    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
-  - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-service-account-binding-schema.json
   - type: JSONSchema
@@ -280,44 +141,149 @@ apis:
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-service-account-list-schema.json
   - type: JSONSchema
-    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
-- aid: streamnative:cloud-user
-  name: StreamNative Cloud API - Users
-  description: StreamNative Cloud API (cloud.streamnative.io/v1alpha1) operations for managing users within an organization namespace, authenticated with OAuth2 client-credential access tokens.
+    url: json-schema/streamnative-cloud-v1alpha1-user-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-user-list-schema.json
+  - type: Documentation
+    url: https://docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api
+  - type: JSONSchema
+    url: json-schema/streamnative-topic-message-event-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-group-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-group-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-lag-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-topic-list-schema.json
+- aid: streamnative:streamnative-ksn-consumer-group-api
+  name: StreamNative Ksn Consumer Group API
+  description: The ksn-consumer-group API from StreamNative — 4 operation(s) for ksn-consumer-group.
   humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
   baseURL: https://api.streamnative.cloud
   tags:
-  - Cloud Management
-  - Users
+  - ksn-consumer-group
   properties:
   - type: OpenAPI
-    url: openapi/streamnative-cloud-user-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/cloudapi/user.json
+    url: openapi/streamnative-ksn-consumer-group-api-openapi.yml
   - type: Documentation
     url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
   - type: JSONSchema
     url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
   - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-apikey-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-apikey-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-secret-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-secret-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-binding-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-binding-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-list-schema.json
+  - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-user-schema.json
   - type: JSONSchema
     url: json-schema/streamnative-cloud-v1alpha1-user-list-schema.json
-- aid: streamnative:kafka-rest
-  name: StreamNative Kafka REST API
-  description: 'Kafka REST admin API (v1) for StreamNative Cloud clusters: list and manage topics and consumer groups, inspect consumer lags, over the cluster HTTP service URL with a bearer token.'
-  humanURL: https://docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api
-  baseURL: https://{httpServiceUrl}/rest-kafka
+  - type: Documentation
+    url: https://docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api
+  - type: JSONSchema
+    url: json-schema/streamnative-topic-message-event-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-group-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-group-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-lag-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-consumer-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-kafka-topic-list-schema.json
+- aid: streamnative:streamnative-ksn-topics-api
+  name: StreamNative Ksn Topics API
+  description: The ksn-topics API from StreamNative — 5 operation(s) for ksn-topics.
+  humanURL: https://docs.streamnative.io/api-references/cloudapi/cloud-api
+  baseURL: https://api.streamnative.cloud
   tags:
-  - Kafka
-  - Topics
-  - Consumer Groups
+  - ksn-topics
   properties:
   - type: OpenAPI
-    url: openapi/streamnative-kafka-rest-openapi.yml
-  - type: OpenAPI
-    name: OpenAPI (provider-hosted)
-    url: https://docs.streamnative.io/apis/kafka-rest-api/kafka-rest-api-v1.json
+    url: openapi/streamnative-ksn-topics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.streamnative.io/api-references/cloudapi/cloud-api
+  - type: JSONSchema
+    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-status-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-apikey-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-apikey-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-io-k8s-apimachinery-pkg-apis-meta-v1-patch-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-connection-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-cloud-environment-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-cluster-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-gateway-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-pulsar-instance-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-secret-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-secret-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-binding-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-binding-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-service-account-list-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-user-schema.json
+  - type: JSONSchema
+    url: json-schema/streamnative-cloud-v1alpha1-user-list-schema.json
   - type: Documentation
     url: https://docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api
   - type: JSONSchema

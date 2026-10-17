@@ -1,14 +1,16 @@
+# x-archived-from: streamnative-cloud-cloudenvironment-openapi.yml
+# x-archived-on: 2026-10-17
 openapi: 3.0.0
 info:
-  title: StreamNative Cloud API - Secrets
+  title: StreamNative Cloud API - Cloud Environments
   version: v1alpha1
 paths:
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/secrets:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudenvironments:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: list or watch objects of kind Secret
-      operationId: listCloudStreamnativeIoV1alpha1NamespacedSecret
+      description: list or watch objects of kind CloudEnvironment
+      operationId: listCloudStreamnativeIoV1alpha1NamespacedCloudEnvironment
       parameters:
       - name: allowWatchBookmarks
         in: query
@@ -130,25 +132,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.SecretList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentList'
             application/json;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.SecretList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentList'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.SecretList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentList'
             application/vnd.kubernetes.protobuf;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.SecretList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentList'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.SecretList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentList'
       x-kubernetes-action: list
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: Secret
-      summary: List secretss
+        kind: CloudEnvironment
+      summary: List cloudenvironmentss
     parameters:
     - name: namespace
       in: path
@@ -163,36 +165,36 @@ paths:
       schema:
         type: string
         uniqueItems: true
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/secrets/{name}:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudenvironments/{name}:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: read the specified Secret
-      operationId: readCloudStreamnativeIoV1alpha1NamespacedSecret
+      description: read the specified CloudEnvironment
+      operationId: readCloudStreamnativeIoV1alpha1NamespacedCloudEnvironment
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
       x-kubernetes-action: get
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: Secret
-      summary: Get secrets
+        kind: CloudEnvironment
+      summary: Get cloudenvironments
     post:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: replace the specified Secret
-      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedSecret
+      description: replace the specified CloudEnvironment
+      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedCloudEnvironment
       parameters:
       - name: dryRun
         in: query
@@ -215,43 +217,43 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+              $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
       x-kubernetes-action: post
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: Secret
-      summary: Update secrets
+        kind: CloudEnvironment
+      summary: Update cloudenvironments
     delete:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: delete a Secret
-      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedSecret
+      description: delete a CloudEnvironment
+      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedCloudEnvironment
       parameters:
       - name: dryRun
         in: query
@@ -322,13 +324,13 @@ paths:
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: Secret
-      summary: Delete secrets
+        kind: CloudEnvironment
+      summary: Delete cloudenvironments
     patch:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: partially update the specified Secret
-      operationId: patchCloudStreamnativeIoV1alpha1NamespacedSecret
+      description: partially update the specified CloudEnvironment
+      operationId: patchCloudStreamnativeIoV1alpha1NamespacedCloudEnvironment
       parameters:
       - name: dryRun
         in: query
@@ -377,35 +379,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
       x-kubernetes-action: patch
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: Secret
-      summary: Patch secrets
+        kind: CloudEnvironment
+      summary: Patch cloudenvironments
     parameters:
     - name: name
       in: path
-      description: name of the Secret
+      description: name of the CloudEnvironment
       required: true
       schema:
         type: string
@@ -425,7 +427,7 @@ paths:
         uniqueItems: true
 components:
   schemas:
-    cloud.v1alpha1.SecretList:
+    cloud.v1alpha1.CloudEnvironmentList:
       type: object
       required:
       - items
@@ -440,7 +442,7 @@ components:
           items:
             default: {}
             allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.Secret'
+            - $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironment'
         kind:
           description: 'Kind is a string value representing the REST resource this
             object represents. Servers may infer this from the endpoint the client
@@ -452,65 +454,38 @@ components:
           - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: SecretList
+        kind: CloudEnvironmentList
         version: v1alpha1
-    cloud.v1alpha1.Secret:
-      description: Secret
+    cloud.v1alpha1.CloudEnvironment:
+      description: CloudEnvironment represents the infrastructure environment for
+        running pulsar clusters, consisting of Kubernetes cluster and set of applications
       type: object
-      required:
-      - instanceName
-      - location
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
             of an object. Servers should convert recognized schemas to the latest
             internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
           type: string
-        data:
-          description: the value should be base64 encoded
-          type: object
-          additionalProperties:
-            type: string
-            default: ''
-        instanceName:
-          type: string
-          default: ''
         kind:
           description: 'Kind is a string value representing the REST resource this
             object represents. Servers may infer this from the endpoint the client
             submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
           type: string
-        location:
-          type: string
-          default: ''
         metadata:
           default: {}
           allOf:
           - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta'
-        poolMemberRef:
-          description: PoolMemberRef is the pool member to deploy the secret. admission
-            controller will infer this information automatically
-          default: {}
-          allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.PoolMemberReference'
         spec:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.SecretSpec'
+          - $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentSpec'
         status:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.SecretStatus'
-        tolerations:
-          type: array
-          items:
-            default: {}
-            allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.Toleration'
-          x-kubernetes-list-type: atomic
+          - $ref: '#/components/schemas/cloud.v1alpha1.CloudEnvironmentStatus'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: Secret
+        kind: CloudEnvironment
         version: v1alpha1
     io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta:
       description: ObjectMeta is metadata that all persisted resources must have,
@@ -797,48 +772,165 @@ components:
           type: string
           default: ''
       x-kubernetes-map-type: atomic
-    cloud.v1alpha1.PoolMemberReference:
-      description: PoolMemberReference is a reference to a pool member with a given
-        name.
+    cloud.v1alpha1.CloudEnvironmentSpec:
+      description: CloudEnvironmentSpec defines the desired state of CloudEnvironment
+      type: object
+      properties:
+        cloudConnectionName:
+          description: CloudConnectionName references to the CloudConnection object
+          type: string
+        defaultGateway:
+          description: DefaultGateway is the default endpoint type to access pulsar
+            clusters on this CloudEnvironment Users can declare new PulsarGateway
+            for different endpoint type If not specified, public pulsar cluster endpoint
+            will be used
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.Gateway'
+        network:
+          description: Network defines how to provision the network infrastructure
+            A dedicated VPC with predefined CIDRs will be provisioned by default.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.Network'
+        region:
+          description: Region defines in which region will resources be deployed
+          type: string
+        zone:
+          description: Zone defines in which availability zone will resources be deployed
+            If specified, the cloud environment will be zonal. Default to unspecified
+            and regional cloud environment
+          type: string
+    cloud.v1alpha1.Gateway:
+      description: Gateway defines the access of pulsar cluster endpoint
+      type: object
+      properties:
+        access:
+          description: Access is the access type of the pulsar gateway, available
+            values are public or private. It is immutable, with the default value
+            public.
+          type: string
+        privateService:
+          description: PrivateService is the configuration of the private endpoint
+            service, only can be configured when the access type is private.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PrivateService'
+    cloud.v1alpha1.PrivateService:
+      type: object
+      properties:
+        allowedIds:
+          description: AllowedIds is the list of Ids that are allowed to connect to
+            the private endpoint service, only can be configured when the access type
+            is private, private endpoint service will be disabled if the whitelist
+            is empty.
+          type: array
+          items:
+            type: string
+            default: ''
+          x-kubernetes-list-type: atomic
+    cloud.v1alpha1.Network:
+      description: Network defines how to provision the network infrastructure CIDR
+        and ID cannot be specified at the same time. When ID is specified, the existing
+        VPC will be used. Otherwise, a new VPC with the specified or default CIDR
+        will be created
+      type: object
+      properties:
+        cidr:
+          description: CIDR determines the CIDR of the VPC to create if specified
+          type: string
+        id:
+          description: ID is the id or the name of an existing VPC when specified.
+            It's vpc id in AWS, vpc network name in GCP and vnet name in Azure
+          type: string
+        subnetCIDR:
+          description: SubnetCIDR determines the CIDR of the subnet to create if specified
+            required for Azure
+          type: string
+    cloud.v1alpha1.CloudEnvironmentStatus:
+      description: CloudEnvironmentStatus defines the observed state of CloudEnvironment
+      type: object
+      properties:
+        conditions:
+          description: Conditions contains details for the current state of underlying
+            resource
+          type: array
+          items:
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Condition'
+          x-kubernetes-list-map-keys:
+          - type
+          x-kubernetes-list-type: map
+          x-kubernetes-patch-merge-key: type
+          x-kubernetes-patch-strategy: merge
+        defaultGateway:
+          description: DefaultGateway tell the status of the default pulsar gateway
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.GatewayStatus'
+    io.k8s.apimachinery.pkg.apis.meta.v1.Condition:
+      description: Condition contains details for one aspect of the current state
+        of this API Resource.
       type: object
       required:
-      - namespace
-      - name
+      - type
+      - status
+      - lastTransitionTime
+      - reason
+      - message
       properties:
-        name:
+        lastTransitionTime:
+          description: lastTransitionTime is the last time the condition transitioned
+            from one status to another. This should be when the underlying condition
+            changed.  If that is not known, then using the time when the API field
+            changed is acceptable.
+          default: {}
+          allOf:
+          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Time'
+        message:
+          description: message is a human readable message indicating details about
+            the transition. This may be an empty string.
           type: string
           default: ''
-        namespace:
+        observedGeneration:
+          description: observedGeneration represents the .metadata.generation that
+            the condition was set based upon. For instance, if .metadata.generation
+            is currently 12, but the .status.conditions[x].observedGeneration is 9,
+            the condition is out of date with respect to the current state of the
+            instance.
+          type: integer
+          format: int64
+        reason:
+          description: reason contains a programmatic identifier indicating the reason
+            for the condition's last transition. Producers of specific condition types
+            may define expected values and meanings for this field, and whether the
+            values are considered a guaranteed API. The value should be a CamelCase
+            string. This field may not be empty.
           type: string
           default: ''
-    cloud.v1alpha1.SecretSpec:
-      type: object
-    cloud.v1alpha1.SecretStatus:
-      type: object
-    cloud.v1alpha1.Toleration:
-      description: The workload this Toleration is attached to tolerates any taint
-        that matches the triple <key,value,effect> using the matching operator <operator>.
+        status:
+          description: status of the condition, one of True, False, Unknown.
+          type: string
+          default: ''
+        type:
+          description: type of condition in CamelCase or in foo.example.com/CamelCase.
+          type: string
+          default: ''
+    cloud.v1alpha1.GatewayStatus:
       type: object
       properties:
-        effect:
-          description: Effect indicates the taint effect to match. Empty means match
-            all taint effects. When specified, allowed values are NoSchedule and PreferNoSchedule.
-          type: string
-        key:
-          description: Key is the taint key that the toleration applies to. Empty
-            means match all taint keys. If the key is empty, operator must be Exists;
-            this combination means to match all values and all keys.
-          type: string
-        operator:
-          description: Operator represents a key's relationship to the value. Valid
-            operators are Exists and Equal. Defaults to Equal. Exists is equivalent
-            to wildcard for value, so that a workload can tolerate all taints of a
-            particular category.
-          type: string
-        value:
-          description: Value is the taint value the toleration matches to. If the
-            operator is Exists, the value should be empty, otherwise just a regular
-            string.
+        privateServiceIds:
+          description: PrivateServiceIds are the id of the private endpoint services,
+            only exposed when the access type is private.
+          type: array
+          items:
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/cloud.v1alpha1.PrivateServiceId'
+          x-kubernetes-list-type: atomic
+    cloud.v1alpha1.PrivateServiceId:
+      type: object
+      properties:
+        id:
+          description: Id is the identifier of private service It is endpoint service
+            name in AWS, psc attachment id in GCP, private service alias in Azure
           type: string
     io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta:
       description: ListMeta describes metadata that synthetic resources must have,
@@ -1134,4 +1226,4 @@ components:
 servers:
 - url: https://api.streamnative.cloud
   description: StreamNative Cloud API (docs.streamnative.io/api-references/cloudapi/cloud-api)
-x-source: https://docs.streamnative.io/apis/cloudapi/secrets.json
+x-source: https://docs.streamnative.io/apis/cloudapi/cloudenvironment.json

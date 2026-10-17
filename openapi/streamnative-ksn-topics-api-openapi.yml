@@ -1,0 +1,373 @@
+openapi: 3.2.0
+info:
+  title: Streamnative Ksn Topics API
+  version: v1
+  description: 'Operations tagged ksn-topics across 2 of this provider''s published API definitions: kafka-rest-api-v1.json, streamnative-kafka-rest-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{httpServiceUrl}/rest-kafka
+  description: Per-cluster HTTP service URL (docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api)
+  variables:
+    httpServiceUrl:
+      default: your-http-service-url-tls
+tags:
+- name: ksn-topics
+paths:
+  /admin/v1/topics:
+    get:
+      tags:
+      - ksn-topics
+      summary: Return the list of topics
+      description: Lists all topics in the Kafka cluster or within a specific namespace. Returns topic metadata including partition count and internal/external topic classification.
+      operationId: listTopics
+      parameters:
+      - name: namespace
+        in: query
+        description: List topics for the special namespace.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaTopicList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    post:
+      tags:
+      - ksn-topics
+      summary: Create topic
+      description: Creates a new topic in the Kafka cluster with the specified configuration. You can set partitions, replication factor, and other topic-level configurations.
+      operationId: createTopic
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: The topic created successfully.
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}:
+    get:
+      tags:
+      - ksn-topics
+      summary: Return the topic with the given topic_name
+      description: Retrieves detailed information about a specific topic identified by its name. Returns topic metadata including configuration, partition details, and replication settings.
+      operationId: getTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The topic with the given topic_name.
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+    delete:
+      tags:
+      - ksn-topics
+      summary: Delete the topic with the given topic_name
+      description: Permanently deletes the specified topic and all its data from the Kafka cluster. This operation cannot be undone.
+      operationId: deleteTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Topic deleted
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/messages:
+    get:
+      tags:
+      - ksn-topics
+      summary: Get messages from a topic
+      operationId: getTopicMessages
+      parameters:
+      - name: topicName
+        in: path
+        description: Topic name
+        required: true
+        schema:
+          type: string
+      - name: seekType
+        in: query
+        description: Seek type
+        required: false
+        schema:
+          type: string
+          enum:
+          - BEGINNING
+          - OFFSET
+          - TIMESTAMP
+          - LATEST
+      - name: seekTo
+        in: query
+        description: The format is [partition]::[offset] for specifying offsets or [partition]::[timestamp in millis] for specifying timestamps
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: limit
+        in: query
+        description: Limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: q
+        in: query
+        description: Query
+        required: false
+        schema:
+          type: string
+      - name: keySerde
+        in: query
+        description: Serde that should be used for deserialization. Supports `String`, `Base64`, `Hex`, `SchemaRegistry`, `ProtobufDecodeRaw`, and `Avro (Embedded)`
+        required: false
+        schema:
+          type: string
+      - name: valueSerde
+        in: query
+        description: Serde that should be used for deserialization. Supports `String`, `Base64`, `Hex`, `SchemaRegistry`, `ProtobufDecodeRaw`, and `Avro (Embedded)`
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/event-stream:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopicMessageEventDTO'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/records:
+    post:
+      tags:
+      - ksn-topics
+      summary: Produce records to the given topic, returning delivery reports for each record…
+      description: Produces one or more records to the specified topic. Each record can include a key, value, headers, and optional partition assignment. Returns delivery reports confirming successful production.
+      operationId: produceRecords
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaTopicList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/topics/{topicName}/unload:
+    put:
+      tags:
+      - ksn-topics
+      summary: Unload the topic with the given topic_name
+      description: Unloads a topic from memory on the broker, releasing resources while preserving data. This operation is useful for reducing memory usage on topics that are not actively being used.
+      operationId: unloadTopic
+      parameters:
+      - name: topicName
+        in: path
+        description: The topic name format is `tenant.namespace.topic`. Or topic with specific partition can be unloaded by using `tenant.namespace.topic-partition` format.
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Topic unloaded successfully
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    TopicMessageEventDTO:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - PHASE
+          - MESSAGE
+          - CONSUMING
+          - DONE
+          - EMIT_THROTTLING
+        message:
+          $ref: '#/components/schemas/TopicMessageDTO'
+        phase:
+          $ref: '#/components/schemas/TopicMessagePhaseDTO'
+        consuming:
+          $ref: '#/components/schemas/TopicMessageConsumingDTO'
+    TopicMessageDTO:
+      type: object
+      required:
+      - offset
+      - partition
+      - timestamp
+      properties:
+        partition:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+        timestampType:
+          type: string
+          enum:
+          - NO_TIMESTAMP_TYPE
+          - CREATE_TIME
+          - LOG_APPEND_TIME
+        key:
+          type: string
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+        content:
+          type: string
+        keyFormat:
+          type: string
+          enum:
+          - AVRO
+          - JSON
+          - PROTOBUF
+          - UNKNOWN
+        valueFormat:
+          type: string
+          enum:
+          - AVRO
+          - JSON
+          - PROTOBUF
+          - UNKNOWN
+        keySize:
+          type: integer
+          format: int64
+        valueSize:
+          type: integer
+          format: int64
+        keySchemaId:
+          type: string
+        valueSchemaId:
+          type: string
+        headersSize:
+          type: integer
+          format: int64
+        keySerde:
+          type: string
+        valueSerde:
+          type: string
+        keyDeserializeProperties:
+          type: object
+          additionalProperties:
+            type: object
+        valueDeserializeProperties:
+          type: object
+          additionalProperties:
+            type: object
+    Metadata:
+      type: object
+    KafkaTopicList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaTopic'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    TopicMessagePhaseDTO:
+      type: object
+      properties:
+        name:
+          type: string
+    KafkaTopic:
+      type: object
+      properties:
+        topic_name:
+          type: string
+        partitions_count:
+          type: integer
+          format: int32
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        internal:
+          type: boolean
+        kind:
+          type: string
+    TopicMessageConsumingDTO:
+      type: object
+      properties:
+        bytesConsumed:
+          type: integer
+          format: int64
+        elapsedMs:
+          type: integer
+          format: int64
+        isCancelled:
+          type: boolean
+        messagesConsumed:
+          type: integer
+          format: int32
+        filterApplyErrors:
+          type: integer
+          format: int32
+x-refined-from:
+- kafka-rest-api-v1.json
+- streamnative-kafka-rest-openapi.yml

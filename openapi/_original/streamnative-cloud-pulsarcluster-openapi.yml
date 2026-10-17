@@ -1,14 +1,16 @@
+# x-archived-from: streamnative-cloud-pulsarcluster-openapi.yml
+# x-archived-on: 2026-10-17
 openapi: 3.0.0
 info:
-  title: StreamNative Cloud API - Pulsar Instances
+  title: StreamNative Cloud API - Pulsar Clusters
   version: v1alpha1
 paths:
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsarinstances:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsarclusters:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: list or watch objects of kind PulsarInstance
-      operationId: listCloudStreamnativeIoV1alpha1NamespacedPulsarInstance
+      description: list or watch objects of kind PulsarCluster
+      operationId: listCloudStreamnativeIoV1alpha1NamespacedPulsarCluster
       parameters:
       - name: allowWatchBookmarks
         in: query
@@ -130,25 +132,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterList'
             application/json;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterList'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterList'
             application/vnd.kubernetes.protobuf;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterList'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceList'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterList'
       x-kubernetes-action: list
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: PulsarInstance
-      summary: List pulsarinstancess
+        kind: PulsarCluster
+      summary: List pulsarclusterss
     parameters:
     - name: namespace
       in: path
@@ -163,36 +165,36 @@ paths:
       schema:
         type: string
         uniqueItems: true
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsarinstances/{name}:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/pulsarclusters/{name}:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: read the specified PulsarInstance
-      operationId: readCloudStreamnativeIoV1alpha1NamespacedPulsarInstance
+      description: read the specified PulsarCluster
+      operationId: readCloudStreamnativeIoV1alpha1NamespacedPulsarCluster
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
       x-kubernetes-action: get
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: PulsarInstance
-      summary: Get pulsarinstances
+        kind: PulsarCluster
+      summary: Get pulsarclusters
     post:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: replace the specified PulsarInstance
-      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedPulsarInstance
+      description: replace the specified PulsarCluster
+      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedPulsarCluster
       parameters:
       - name: dryRun
         in: query
@@ -215,43 +217,43 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+              $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
       x-kubernetes-action: post
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: PulsarInstance
-      summary: Update pulsarinstances
+        kind: PulsarCluster
+      summary: Update pulsarclusters
     delete:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: delete a PulsarInstance
-      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedPulsarInstance
+      description: delete a PulsarCluster
+      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedPulsarCluster
       parameters:
       - name: dryRun
         in: query
@@ -322,12 +324,90 @@ paths:
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: PulsarInstance
-      summary: Delete pulsarinstances
+        kind: PulsarCluster
+      summary: Delete pulsarclusters
+    patch:
+      tags:
+      - cloudStreamnativeIo_v1alpha1
+      description: partially update the specified PulsarCluster
+      operationId: patchCloudStreamnativeIoV1alpha1NamespacedPulsarCluster
+      parameters:
+      - name: dryRun
+        in: query
+        description: 'When present, indicates that modifications should not be persisted.
+          An invalid or unrecognized dryRun directive will result in an error response
+          and no further processing of the request. Valid values are: - All: all dry
+          run stages will be processed'
+        schema:
+          type: string
+          uniqueItems: true
+      - name: fieldManager
+        in: query
+        description: fieldManager is a name associated with the actor or entity that
+          is making these changes. The value must be less than or 128 characters long,
+          and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+          This field is required for apply requests (application/apply-patch) but
+          optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+        schema:
+          type: string
+          uniqueItems: true
+      - name: force
+        in: query
+        description: Force is going to "force" Apply requests. It means user will
+          re-acquire conflicting fields owned by other people. Force flag must be
+          unset for non-apply patch requests.
+        schema:
+          type: boolean
+          uniqueItems: true
+      requestBody:
+        content:
+          application/apply-patch+yaml:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/strategic-merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+            application/vnd.kubernetes.protobuf:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+            application/vnd.kubernetes.protobuf:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
+      x-kubernetes-action: patch
+      x-kubernetes-group-version-kind:
+        group: cloud.streamnative.io
+        version: v1alpha1
+        kind: PulsarCluster
+      summary: Patch pulsarclusters
     parameters:
     - name: name
       in: path
-      description: name of the PulsarInstance
+      description: name of the PulsarCluster
       required: true
       schema:
         type: string
@@ -347,7 +427,7 @@ paths:
         uniqueItems: true
 components:
   schemas:
-    cloud.v1alpha1.PulsarInstanceList:
+    cloud.v1alpha1.PulsarClusterList:
       type: object
       required:
       - items
@@ -362,7 +442,7 @@ components:
           items:
             default: {}
             allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstance'
+            - $ref: '#/components/schemas/cloud.v1alpha1.PulsarCluster'
         kind:
           description: 'Kind is a string value representing the REST resource this
             object represents. Servers may infer this from the endpoint the client
@@ -374,10 +454,10 @@ components:
           - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: PulsarInstanceList
+        kind: PulsarClusterList
         version: v1alpha1
-    cloud.v1alpha1.PulsarInstance:
-      description: PulsarInstance
+    cloud.v1alpha1.PulsarCluster:
+      description: PulsarCluster
       type: object
       properties:
         apiVersion:
@@ -397,14 +477,14 @@ components:
         spec:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceSpec'
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterSpec'
         status:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceStatus'
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterStatus'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: PulsarInstance
+        kind: PulsarCluster
         version: v1alpha1
     io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta:
       description: ObjectMeta is metadata that all persisted resources must have,
@@ -691,59 +771,332 @@ components:
           type: string
           default: ''
       x-kubernetes-map-type: atomic
-    cloud.v1alpha1.PulsarInstanceSpec:
-      description: PulsarInstanceSpec defines the desired state of PulsarInstance
+    cloud.v1alpha1.PulsarClusterSpec:
+      description: PulsarClusterSpec defines the desired state of PulsarCluster
       type: object
       required:
-      - availabilityMode
+      - instanceName
+      - location
+      - broker
       properties:
-        auth:
-          description: Auth defines the auth section of the PulsarInstance
+        bookKeeperSetRef:
+          $ref: '#/components/schemas/cloud.v1alpha1.BookKeeperSetReference'
+        bookkeeper:
+          $ref: '#/components/schemas/cloud.v1alpha1.BookKeeper'
+        broker:
+          default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceAuth'
-        availabilityMode:
-          description: AvailabilityMode decides whether pods of the same type in pulsar
-            should be in one zone or multiple zones
+          - $ref: '#/components/schemas/cloud.v1alpha1.Broker'
+        config:
+          $ref: '#/components/schemas/cloud.v1alpha1.Config'
+        instanceName:
           type: string
           default: ''
-        plan:
-          description: 'Plan is the subscription plan, will create a stripe subscription
-            if not empty deprecated: 1.16'
+        location:
           type: string
-        poolRef:
-          $ref: '#/components/schemas/cloud.v1alpha1.PoolRef'
-        type:
-          description: 'Type defines the instance specialization type: - free: a low-cost
-            Pulsar cluster based on shared storage. - standard: a standard deployment
-            of Pulsar, BookKeeper, and ZooKeeper.'
+          default: ''
+        maintenanceWindow:
+          $ref: '#/components/schemas/cloud.v1alpha1.MaintenanceWindow'
+        poolMemberRef:
+          default: {}
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PoolMemberReference'
+        releaseChannel:
           type: string
-    cloud.v1alpha1.PulsarInstanceAuth:
-      description: PulsarInstanceAuth defines auth section of PulsarInstance
+        serviceEndpoints:
+          type: array
+          items:
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/cloud.v1alpha1.PulsarServiceEndpoint'
+          x-kubernetes-list-type: atomic
+        tolerations:
+          type: array
+          items:
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/cloud.v1alpha1.Toleration'
+          x-kubernetes-list-type: atomic
+        zooKeeperSetRef:
+          $ref: '#/components/schemas/cloud.v1alpha1.ZooKeeperSetReference'
+    cloud.v1alpha1.BookKeeperSetReference:
+      description: BookKeeperSetReference is a fully-qualified reference to a BookKeeperSet
+        with a given name.
       type: object
+      required:
+      - name
       properties:
-        apikey:
-          description: ApiKey configuration
-          allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.ApiKeyConfig'
-        oauth2:
-          description: OAuth2 configuration
-          allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.OAuth2Config'
-    cloud.v1alpha1.ApiKeyConfig:
-      description: ApiKeyConfig defines apikey config of PulsarInstance
+        name:
+          type: string
+          default: ''
+        namespace:
+          type: string
+    cloud.v1alpha1.BookKeeper:
       type: object
-    cloud.v1alpha1.OAuth2Config:
-      description: OAuth2Config define oauth2 config of PulsarInstance
-      type: object
+      required:
+      - replicas
       properties:
-        tokenLifetimeSeconds:
-          description: 'TokenLifetimeSeconds access token lifetime (in seconds) for
-            the API. Default value is 86,400 seconds (24 hours). Maximum value is
-            2,592,000 seconds (30 days) Document link: https://auth0.com/docs/secure/tokens/access-tokens/update-access-token-lifetime'
+        autoScalingPolicy:
+          description: AutoScalingPolicy configure autoscaling for bookkeeper
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.AutoScalingPolicy'
+        image:
+          description: Image name is the name of the image to deploy.
+          type: string
+        replicas:
+          description: Replicas is the expected size of the bookkeeper cluster.
           type: integer
           format: int32
-    cloud.v1alpha1.PoolRef:
-      description: PoolRef is a reference to a pool with a given name.
+        resourceSpec:
+          description: ResourceSpec defines the requested resource of each node in
+            the cluster
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.BookKeeperNodeResourceSpec'
+        resources:
+          description: CPU and memory resources
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.BookkeeperNodeResource'
+    cloud.v1alpha1.AutoScalingPolicy:
+      description: AutoScalingPolicy defines the min/max replicas for component is
+        autoscaling enabled.
+      type: object
+      required:
+      - maxReplicas
+      properties:
+        maxReplicas:
+          type: integer
+          format: int32
+          default: 0
+        minReplicas:
+          type: integer
+          format: int32
+    cloud.v1alpha1.BookKeeperNodeResourceSpec:
+      type: object
+      properties:
+        nodeType:
+          description: NodeType defines the request node specification type, take
+            lower precedence over Resources
+          type: string
+        storageSize:
+          description: StorageSize defines the size of the storage
+          allOf:
+          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+    io.k8s.apimachinery.pkg.api.resource.Quantity:
+      description: "Quantity is a fixed-point representation of a number. It provides\
+        \ convenient marshaling/unmarshaling in JSON and YAML, in addition to String()\
+        \ and AsInt64() accessors.\n\nThe serialization format is:\n\n<quantity> \
+        \       ::= <signedNumber><suffix>\n  (Note that <suffix> may be empty, from\
+        \ the \"\" case in <decimalSI>.)\n<digit>           ::= 0 | 1 | ... | 9 <digits>\
+        \          ::= <digit> | <digit><digits> <number>          ::= <digits> |\
+        \ <digits>.<digits> | <digits>. | .<digits> <sign>            ::= \"+\" |\
+        \ \"-\" <signedNumber>    ::= <number> | <sign><number> <suffix>         \
+        \ ::= <binarySI> | <decimalExponent> | <decimalSI> <binarySI>        ::= Ki\
+        \ | Mi | Gi | Ti | Pi | Ei\n  (International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)\n\
+        <decimalSI>       ::= m | \"\" | k | M | G | T | P | E\n  (Note that 1024\
+        \ = 1Ki but 1000 = 1k; I didn't choose the capitalization.)\n<decimalExponent>\
+        \ ::= \"e\" <signedNumber> | \"E\" <signedNumber>\n\nNo matter which of the\
+        \ three exponent forms is used, no quantity may represent a number greater\
+        \ than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers\
+        \ larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded\
+        \ up to 1m.) This may be extended in the future if we require larger or smaller\
+        \ quantities.\n\nWhen a Quantity is parsed from a string, it will remember\
+        \ the type of suffix it had, and will use the same type again when it is serialized.\n\
+        \nBefore serializing, Quantity will be put in \"canonical form\". This means\
+        \ that Exponent/suffix will be adjusted up or down (with a corresponding increase\
+        \ or decrease in Mantissa) such that:\n  a. No precision is lost\n  b. No\
+        \ fractional digits will be emitted\n  c. The exponent (or suffix) is as large\
+        \ as possible.\nThe sign will be omitted unless the number is negative.\n\n\
+        Examples:\n  1.5 will be serialized as \"1500m\"\n  1.5Gi will be serialized\
+        \ as \"1536Mi\"\n\nNote that the quantity will NEVER be internally represented\
+        \ by a floating point number. That is the whole point of this exercise.\n\n\
+        Non-canonical values will still parse as long as they are well formed, but\
+        \ will be re-emitted in their canonical form. (So always use canonical form,\
+        \ or don't diff.)\n\nThis format is intended to make it difficult to use these\
+        \ numbers without writing some sort of special handling code in the hopes\
+        \ that that will cause implementors to also use a fixed point implementation."
+      type: string
+    cloud.v1alpha1.BookkeeperNodeResource:
+      description: Represents resource spec for bookie nodes
+      type: object
+      required:
+      - cpu
+      - memory
+      properties:
+        cpu:
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+        directPercentage:
+          description: Percentage of direct memory from overall memory. Set to 0 to
+            use default value.
+          type: integer
+          format: int32
+          default: 0
+        heapPercentage:
+          description: Percentage of heap memory from overall memory. Set to 0 to
+            use default value.
+          type: integer
+          format: int32
+          default: 0
+        journalDisk:
+          description: JournalDisk size. Set to zero equivalent to use default value
+          allOf:
+          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+        ledgerDisk:
+          description: LedgerDisk size. Set to zero equivalent to use default value
+          allOf:
+          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+        memory:
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+    cloud.v1alpha1.Broker:
+      type: object
+      required:
+      - replicas
+      properties:
+        autoScalingPolicy:
+          description: AutoScalingPolicy configure autoscaling for broker
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.AutoScalingPolicy'
+        image:
+          description: Image name is the name of the image to deploy.
+          type: string
+        replicas:
+          description: Replicas is the expected size of the broker cluster.
+          type: integer
+          format: int32
+        resourceSpec:
+          description: 'ResourceSpec defines the requested resource of each node in
+            the cluster Deprecated: use `Resources` instead'
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.BrokerNodeResourceSpec'
+        resources:
+          description: Represents broker resource spec.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.DefaultNodeResource'
+    cloud.v1alpha1.BrokerNodeResourceSpec:
+      type: object
+      properties:
+        nodeType:
+          description: NodeType defines the request node specification type, take
+            lower precedence over Resources
+          type: string
+    cloud.v1alpha1.DefaultNodeResource:
+      description: Represents resource spec for nodes
+      type: object
+      required:
+      - cpu
+      - memory
+      properties:
+        cpu:
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+        directPercentage:
+          description: Percentage of direct memory from overall memory. Set to 0 to
+            use default value.
+          type: integer
+          format: int32
+          default: 0
+        heapPercentage:
+          description: Percentage of heap memory from overall memory. Set to 0 to
+            use default value.
+          type: integer
+          format: int32
+          default: 0
+        memory:
+          $ref: '#/components/schemas/io.k8s.apimachinery.pkg.api.resource.Quantity'
+    cloud.v1alpha1.Config:
+      type: object
+      properties:
+        auditLog:
+          description: AuditLog controls the custom config of audit log.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.AuditLog'
+        custom:
+          description: Custom accepts custom configurations.
+          type: object
+          additionalProperties:
+            type: string
+            default: ''
+        functionEnabled:
+          description: FunctionEnabled controls whether function is enabled.
+          type: boolean
+        protocols:
+          description: Protocols controls the protocols enabled in brokers.
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.ProtocolsConfig'
+        transactionEnabled:
+          description: TransactionEnabled controls whether transaction is enabled.
+          type: boolean
+        websocketEnabled:
+          description: WebsocketEnabled controls whether websocket is enabled.
+          type: boolean
+    cloud.v1alpha1.AuditLog:
+      type: object
+      required:
+      - categories
+      properties:
+        categories:
+          type: array
+          items:
+            type: string
+            default: ''
+          x-kubernetes-list-type: set
+    cloud.v1alpha1.ProtocolsConfig:
+      type: object
+      properties:
+        amqp:
+          description: Amqp controls whether to enable Amqp protocol in brokers
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.AmqpConfig'
+        kafka:
+          description: Kafka controls whether to enable Kafka protocol in brokers
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.KafkaConfig'
+        mqtt:
+          description: Mqtt controls whether to enable mqtt protocol in brokers
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.MqttConfig'
+    cloud.v1alpha1.AmqpConfig:
+      type: object
+    cloud.v1alpha1.KafkaConfig:
+      type: object
+    cloud.v1alpha1.MqttConfig:
+      description: MqttConfig defines the mqtt protocol config
+      type: object
+    cloud.v1alpha1.MaintenanceWindow:
+      type: object
+      required:
+      - window
+      - recurrence
+      properties:
+        recurrence:
+          description: Recurrence define the maintenance execution cycle, 0~6, to
+            express Monday to Sunday
+          type: string
+          default: ''
+        window:
+          description: Window define the maintenance execution window
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.Window'
+    cloud.v1alpha1.Window:
+      type: object
+      required:
+      - startTime
+      - duration
+      properties:
+        duration:
+          description: StartTime define the maintenance execution duration
+          allOf:
+          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Duration'
+        startTime:
+          description: StartTime define the maintenance execution start time
+          type: string
+          default: ''
+    io.k8s.apimachinery.pkg.apis.meta.v1.Duration:
+      description: Duration is a wrapper around time.Duration which supports correct
+        marshaling to YAML and JSON. In particular, it marshals into strings, which
+        can be used as map keys in json.
+      type: string
+    cloud.v1alpha1.PoolMemberReference:
+      description: PoolMemberReference is a reference to a pool member with a given
+        name.
       type: object
       required:
       - namespace
@@ -755,14 +1108,65 @@ components:
         namespace:
           type: string
           default: ''
-    cloud.v1alpha1.PulsarInstanceStatus:
-      description: PulsarInstanceStatus defines the observed state of PulsarInstance
+    cloud.v1alpha1.PulsarServiceEndpoint:
       type: object
       required:
-      - auth
+      - dnsName
       properties:
-        auth:
-          $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceStatusAuth'
+        dnsName:
+          type: string
+          default: ''
+        type:
+          type: string
+    cloud.v1alpha1.Toleration:
+      description: The workload this Toleration is attached to tolerates any taint
+        that matches the triple <key,value,effect> using the matching operator <operator>.
+      type: object
+      properties:
+        effect:
+          description: Effect indicates the taint effect to match. Empty means match
+            all taint effects. When specified, allowed values are NoSchedule and PreferNoSchedule.
+          type: string
+        key:
+          description: Key is the taint key that the toleration applies to. Empty
+            means match all taint keys. If the key is empty, operator must be Exists;
+            this combination means to match all values and all keys.
+          type: string
+        operator:
+          description: Operator represents a key's relationship to the value. Valid
+            operators are Exists and Equal. Defaults to Equal. Exists is equivalent
+            to wildcard for value, so that a workload can tolerate all taints of a
+            particular category.
+          type: string
+        value:
+          description: Value is the taint value the toleration matches to. If the
+            operator is Exists, the value should be empty, otherwise just a regular
+            string.
+          type: string
+    cloud.v1alpha1.ZooKeeperSetReference:
+      description: ZooKeeperSetReference is a fully-qualified reference to a ZooKeeperSet
+        with a given name.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          default: ''
+        namespace:
+          type: string
+    cloud.v1alpha1.PulsarClusterStatus:
+      description: PulsarClusterStatus defines the observed state of PulsarCluster
+      type: object
+      properties:
+        bookkeeper:
+          description: Bookkeeper is the status of bookkeeper component in the cluster
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterComponentStatus'
+        broker:
+          description: Broker is the status of broker component in the cluster
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterComponentStatus'
         conditions:
           description: Conditions is an array of current observed conditions.
           type: array
@@ -775,29 +1179,26 @@ components:
           x-kubernetes-list-type: map
           x-kubernetes-patch-merge-key: type
           x-kubernetes-patch-strategy: merge
-    cloud.v1alpha1.PulsarInstanceStatusAuth:
+        zookeeper:
+          description: Zookeeper is the status of zookeeper component in the cluster
+          allOf:
+          - $ref: '#/components/schemas/cloud.v1alpha1.PulsarClusterComponentStatus'
+    cloud.v1alpha1.PulsarClusterComponentStatus:
       type: object
-      required:
-      - type
-      - oauth2
       properties:
-        oauth2:
-          $ref: '#/components/schemas/cloud.v1alpha1.PulsarInstanceStatusAuthOAuth2'
-        type:
-          type: string
-          default: ''
-    cloud.v1alpha1.PulsarInstanceStatusAuthOAuth2:
-      type: object
-      required:
-      - issuerURL
-      - audience
-      properties:
-        audience:
-          type: string
-          default: ''
-        issuerURL:
-          type: string
-          default: ''
+        readyReplicas:
+          description: ReadyReplicas is the number of ready servers in the cluster
+          type: integer
+          format: int32
+        replicas:
+          description: Replicas is the number of servers in the cluster
+          type: integer
+          format: int32
+        updatedReplicas:
+          description: UpdatedReplicas is the number of servers that has been updated
+            to the latest configuration
+          type: integer
+          format: int32
     cloud.v1alpha1.Condition:
       description: 'Condition represents an observation of an object''s state. Conditions
         are an extension mechanism intended to be used when the details of an observation
@@ -1130,4 +1531,4 @@ components:
 servers:
 - url: https://api.streamnative.cloud
   description: StreamNative Cloud API (docs.streamnative.io/api-references/cloudapi/cloud-api)
-x-source: https://docs.streamnative.io/apis/cloudapi/pulsarinstance.json
+x-source: https://docs.streamnative.io/apis/cloudapi/pulsarcluster.json

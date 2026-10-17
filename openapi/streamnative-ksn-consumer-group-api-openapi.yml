@@ -1,0 +1,216 @@
+openapi: 3.2.0
+info:
+  title: Streamnative Ksn Consumer Group API
+  version: v1
+  description: 'Operations tagged ksn-consumer-group across 2 of this provider''s published API definitions: kafka-rest-api-v1.json, streamnative-kafka-rest-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{httpServiceUrl}/rest-kafka
+  description: Per-cluster HTTP service URL (docs.streamnative.io/cloud/build/kafka-clients/kafka-rest-api)
+  variables:
+    httpServiceUrl:
+      default: your-http-service-url-tls
+tags:
+- name: ksn-consumer-group
+paths:
+  /admin/v1/consumer-groups:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return the list of consumer groups
+      description: Lists all consumer groups in the Kafka cluster. Returns a collection of consumer group objects with their basic metadata.
+      operationId: listConsumerGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerGroupList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}/lags:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return a list of consumer lags of the consumers belonging to the specified…
+      description: Retrieves consumer lag information for all topic partitions consumed by the specified consumer group. Lag represents the difference between the latest offset and the consumer's current position.
+      operationId: getConsumerGroupLags
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerLagList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return the consumer group specified by the consumer_group_id
+      description: Gets detailed information about a specific consumer group identified by its ID. Returns consumer group metadata including state, members, and assigned partitions.
+      operationId: listConsumerGroupsSpecifiedByTheConsumerGroupId
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerGroup'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+  /admin/v1/consumer-groups/{consumer_group_id}/consumers:
+    get:
+      tags:
+      - ksn-consumer-group
+      summary: Return a list of consumers that belong to the specified consumer group
+      description: Lists all active consumers that are members of the specified consumer group. Includes consumer metadata such as client ID, host, and partition assignments.
+      operationId: listConsumersBySpecifiedConsumerGroup
+      parameters:
+      - name: consumer_group_id
+        in: path
+        description: The consumer group ID.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KafkaConsumerList'
+        '400':
+          description: Wrong request params
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    Metadata:
+      type: object
+    KafkaConsumer:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        consumer_id:
+          type: string
+        client_id:
+          type: string
+        host:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumer'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerLagList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumerLag'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerGroupList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/KafkaConsumerGroup'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerLag:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        topic_name:
+          type: string
+        partition_id:
+          type: integer
+          format: int32
+        consumer_id:
+          type: string
+        host:
+          type: string
+        client_id:
+          type: string
+        current_offset:
+          type: integer
+          format: int64
+        log_end_offset:
+          type: integer
+          format: int64
+        lag:
+          type: integer
+          format: int64
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        kind:
+          type: string
+    KafkaConsumerGroup:
+      type: object
+      properties:
+        consumer_group_id:
+          type: string
+        partition_assignor:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        simple:
+          type: boolean
+        kind:
+          type: string
+x-refined-from:
+- kafka-rest-api-v1.json
+- streamnative-kafka-rest-openapi.yml

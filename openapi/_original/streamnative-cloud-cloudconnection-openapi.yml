@@ -1,14 +1,16 @@
+# x-archived-from: streamnative-cloud-cloudconnection-openapi.yml
+# x-archived-on: 2026-10-17
 openapi: 3.0.0
 info:
-  title: StreamNative Cloud API - Users
+  title: StreamNative Cloud API - Cloud Connections
   version: v1alpha1
 paths:
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/users:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudconnections:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: list or watch objects of kind User
-      operationId: listCloudStreamnativeIoV1alpha1NamespacedUser
+      description: list or watch objects of kind CloudConnection
+      operationId: listCloudStreamnativeIoV1alpha1NamespacedCloudConnection
       parameters:
       - name: allowWatchBookmarks
         in: query
@@ -130,25 +132,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.UserList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
             application/json;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.UserList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.UserList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
             application/vnd.kubernetes.protobuf;stream=watch:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.UserList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.UserList'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionList'
       x-kubernetes-action: list
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: User
-      summary: List userss
+        kind: CloudConnection
+      summary: List cloudconnectionss
     parameters:
     - name: namespace
       in: path
@@ -163,36 +165,36 @@ paths:
       schema:
         type: string
         uniqueItems: true
-  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/users/{name}:
+  /apis/cloud.streamnative.io/v1alpha1/namespaces/{namespace}/cloudconnections/{name}:
     get:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: read the specified User
-      operationId: readCloudStreamnativeIoV1alpha1NamespacedUser
+      description: read the specified CloudConnection
+      operationId: readCloudStreamnativeIoV1alpha1NamespacedCloudConnection
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
       x-kubernetes-action: get
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: User
-      summary: Get users
+        kind: CloudConnection
+      summary: Get cloudconnections
     post:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: replace the specified User
-      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedUser
+      description: replace the specified CloudConnection
+      operationId: replaceCloudStreamnativeIoV1alpha1NamespacedCloudConnection
       parameters:
       - name: dryRun
         in: query
@@ -215,43 +217,43 @@ paths:
         content:
           '*/*':
             schema:
-              $ref: '#/components/schemas/cloud.v1alpha1.User'
+              $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
         '201':
           description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/vnd.kubernetes.protobuf:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
             application/yaml:
               schema:
-                $ref: '#/components/schemas/cloud.v1alpha1.User'
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
       x-kubernetes-action: post
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: User
-      summary: Update users
+        kind: CloudConnection
+      summary: Update cloudconnections
     delete:
       tags:
       - cloudStreamnativeIo_v1alpha1
-      description: delete an User
-      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedUser
+      description: delete a CloudConnection
+      operationId: deleteCloudStreamnativeIoV1alpha1NamespacedCloudConnection
       parameters:
       - name: dryRun
         in: query
@@ -322,12 +324,90 @@ paths:
       x-kubernetes-group-version-kind:
         group: cloud.streamnative.io
         version: v1alpha1
-        kind: User
-      summary: Delete users
+        kind: CloudConnection
+      summary: Delete cloudconnections
+    patch:
+      tags:
+      - cloudStreamnativeIo_v1alpha1
+      description: partially update the specified CloudConnection
+      operationId: patchCloudStreamnativeIoV1alpha1NamespacedCloudConnection
+      parameters:
+      - name: dryRun
+        in: query
+        description: 'When present, indicates that modifications should not be persisted.
+          An invalid or unrecognized dryRun directive will result in an error response
+          and no further processing of the request. Valid values are: - All: all dry
+          run stages will be processed'
+        schema:
+          type: string
+          uniqueItems: true
+      - name: fieldManager
+        in: query
+        description: fieldManager is a name associated with the actor or entity that
+          is making these changes. The value must be less than or 128 characters long,
+          and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+          This field is required for apply requests (application/apply-patch) but
+          optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+        schema:
+          type: string
+          uniqueItems: true
+      - name: force
+        in: query
+        description: Force is going to "force" Apply requests. It means user will
+          re-acquire conflicting fields owned by other people. Force flag must be
+          unset for non-apply patch requests.
+        schema:
+          type: boolean
+          uniqueItems: true
+      requestBody:
+        content:
+          application/apply-patch+yaml:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+          application/strategic-merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Patch'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+            application/vnd.kubernetes.protobuf:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+            application/vnd.kubernetes.protobuf:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
+      x-kubernetes-action: patch
+      x-kubernetes-group-version-kind:
+        group: cloud.streamnative.io
+        version: v1alpha1
+        kind: CloudConnection
+      summary: Patch cloudconnections
     parameters:
     - name: name
       in: path
-      description: name of the User
+      description: name of the CloudConnection
       required: true
       schema:
         type: string
@@ -347,7 +427,7 @@ paths:
         uniqueItems: true
 components:
   schemas:
-    cloud.v1alpha1.UserList:
+    cloud.v1alpha1.CloudConnectionList:
       type: object
       required:
       - items
@@ -362,7 +442,7 @@ components:
           items:
             default: {}
             allOf:
-            - $ref: '#/components/schemas/cloud.v1alpha1.User'
+            - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnection'
         kind:
           description: 'Kind is a string value representing the REST resource this
             object represents. Servers may infer this from the endpoint the client
@@ -374,10 +454,18 @@ components:
           - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: UserList
+        kind: CloudConnectionList
         version: v1alpha1
-    cloud.v1alpha1.User:
-      description: User
+    cloud.v1alpha1.CloudConnection:
+      description: 'CloudConnection represents a connection to the customer''s cloud
+        environment Currently, this object *only* is used to serve as an inventory
+        of customer connections and make sure that they remain valid. In the future,
+        we might consider this object to be used by other objects, but existing APIs
+        already take care of that
+
+
+        Other internal options are defined in the CloudConnectionBackendConfig type
+        which is the "companion" CRD to this user facing API'
       type: object
       properties:
         apiVersion:
@@ -397,14 +485,14 @@ components:
         spec:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.UserSpec'
+          - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionSpec'
         status:
           default: {}
           allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.UserStatus'
+          - $ref: '#/components/schemas/cloud.v1alpha1.CloudConnectionStatus'
       x-kubernetes-group-version-kind:
       - group: cloud.streamnative.io
-        kind: User
+        kind: CloudConnection
         version: v1alpha1
     io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta:
       description: ObjectMeta is metadata that all persisted resources must have,
@@ -691,54 +779,74 @@ components:
           type: string
           default: ''
       x-kubernetes-map-type: atomic
-    cloud.v1alpha1.UserSpec:
-      description: UserSpec defines the desired state of User
+    cloud.v1alpha1.CloudConnectionSpec:
+      description: CloudConnectionSpec defines the desired state of CloudConnection
       type: object
       required:
-      - email
+      - type
       properties:
-        email:
-          type: string
-          default: ''
-        invitation:
-          description: 'Deprecated: Invitation is deprecated and no longer used.'
-          allOf:
-          - $ref: '#/components/schemas/cloud.v1alpha1.Invitation'
-        name:
-          $ref: '#/components/schemas/cloud.v1alpha1.UserName'
+        aws:
+          $ref: '#/components/schemas/cloud.v1alpha1.AWSCloudConnection'
+        azure:
+          $ref: '#/components/schemas/cloud.v1alpha1.AzureConnection'
+        gcp:
+          $ref: '#/components/schemas/cloud.v1alpha1.GCPCloudConnection'
         type:
           type: string
-    cloud.v1alpha1.Invitation:
+          default: ''
+    cloud.v1alpha1.AWSCloudConnection:
       type: object
       required:
-      - expiration
-      - decision
+      - accountId
       properties:
-        decision:
-          description: Decision indicates the user's response to the invitation
+        accountId:
           type: string
           default: ''
-        expiration:
-          description: Expiration indicates when the invitation expires
-          default: {}
-          allOf:
-          - $ref: '#/components/schemas/io.k8s.apimachinery.pkg.apis.meta.v1.Time'
-    cloud.v1alpha1.UserName:
+    cloud.v1alpha1.AzureConnection:
       type: object
       required:
-      - first
-      - last
+      - subscriptionId
+      - tenantId
+      - clientId
+      - supportClientId
       properties:
-        first:
+        clientId:
           type: string
           default: ''
-        last:
+        subscriptionId:
           type: string
           default: ''
-    cloud.v1alpha1.UserStatus:
-      description: UserStatus defines the observed state of User
+        supportClientId:
+          type: string
+          default: ''
+        tenantId:
+          type: string
+          default: ''
+    cloud.v1alpha1.GCPCloudConnection:
+      type: object
+      required:
+      - projectId
+      properties:
+        projectId:
+          type: string
+          default: ''
+    cloud.v1alpha1.CloudConnectionStatus:
+      description: CloudConnectionStatus defines the observed state of CloudConnection
       type: object
       properties:
+        availableLocations:
+          type: array
+          items:
+            default: {}
+            allOf:
+            - $ref: '#/components/schemas/cloud.v1alpha1.RegionInfo'
+          x-kubernetes-list-map-keys:
+          - region
+          x-kubernetes-list-type: map
+          x-kubernetes-patch-merge-key: region
+          x-kubernetes-patch-strategy: merge
+        awsPolicyVersion:
+          type: string
         conditions:
           description: Conditions is an array of current observed conditions.
           type: array
@@ -751,6 +859,20 @@ components:
           x-kubernetes-list-type: map
           x-kubernetes-patch-merge-key: type
           x-kubernetes-patch-strategy: merge
+    cloud.v1alpha1.RegionInfo:
+      type: object
+      required:
+      - region
+      - zones
+      properties:
+        region:
+          type: string
+          default: ''
+        zones:
+          type: array
+          items:
+            type: string
+            default: ''
     cloud.v1alpha1.Condition:
       description: 'Condition represents an observation of an object''s state. Conditions
         are an extension mechanism intended to be used when the details of an observation
@@ -1083,4 +1205,4 @@ components:
 servers:
 - url: https://api.streamnative.cloud
   description: StreamNative Cloud API (docs.streamnative.io/api-references/cloudapi/cloud-api)
-x-source: https://docs.streamnative.io/apis/cloudapi/user.json
+x-source: https://docs.streamnative.io/apis/cloudapi/cloudconnection.json
