@@ -7,6 +7,8 @@ source:
 - https://monid.ai/tools/streamnative
 checked:
 - https://a2aregistry.org/api/agents
+- https://aws.amazon.com/marketplace/
+- https://azuremarketplace.microsoft.com/
 - https://composio.dev/toolkits/streamnative
 - https://monid.ai/tools/streamnative
 - https://n8n.io/integrations/streamnative/
@@ -14,37 +16,35 @@ checked:
 summary: null
 marketplace_apps: []
 edges:
-- partner_name: A2A protocol (own Agent Card)
-  partner: null
-  partner_match: register
-  type: register
-  direction: provider-built
-  category: A2A agent
-  evidence: https://docs.streamnative.io/.well-known/agent-card.json
-  channel: provider-built
-  relationship: compatible
-  shape: a2a
-  evidence_kind: own-wellknown
-  degree: conformant
-  report_only: true
-  a2a_card:
-    grade: conformant
-    verdict: live
-    protocol_version: '0.3'
-    deviations:
-    - supportedInterfaces-instead-of-additionalInterfaces
-    card_subject: null
-  contract_reference:
-    register: provider's own /.well-known/agent-card.json
-    spec_file: null
-    standard: A2A
-    role: a2a-agent-card
-    registered_name: StreamNative Documentation
-    organization: StreamNative Documentation
-    matched_domain: streamnative.io
-    matched_by: own-domain
-    detected_by: sweep-ai-agents.py
-    detected: '2026-10-15'
-  detected_by: sweep-ai-agents.py
-  first_seen: '2026-10-15'
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=567ea745-17ba-4c66-b3ec-a1350352cae7
+  listing_count: 2
+  apps:
+  - Apache Kafka® & Apache Pulsar™ Managed by StreamNative - PAYGO
+  - Apache Kafka® & Apache Pulsar™ Managed by StreamNative - Annual Commits
+  seller_name: StreamNative Cloud
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-19'
+- partner_name: Microsoft Azure Marketplace
+  partner: microsoft-azure
+  partner_match: aggregator
+  type: marketplace
+  marketplace: azure-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=StreamNative
+  listing_count: 1
+  apps:
+  - Apache Kafka® & Apache Pulsar™ Managed by StreamNative
+  seller_name: StreamNative
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-19'
 templates: []
